@@ -127,7 +127,15 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .topic-extra{margin-top:13px;color:var(--muted);font-size:.9rem}
 .ocr-demo{margin:0}
 .ocr-demo svg{display:block;width:100%;margin:12px 0;border:1px solid #bfc4b1}
-.ocr-illustration rect{fill:none;stroke:#e4f5a5;stroke-width:2}
+.ocr-regions rect{fill:none;stroke:#e4f5a5;stroke-width:2}
+.ocr-region-labels rect{fill:#e4f5a5}
+.ocr-region-labels text{fill:#19221e;font:700 12px var(--mono);text-anchor:middle}
+.ocr-crops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:8px 0}
+.ocr-crops li{min-width:0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.ocr-crop-image{display:grid;place-items:center;aspect-ratio:6/1;background:#1d2525}
+.ocr-crop-image img{display:block;width:100%;height:auto}
+.ocr-crop-text{display:flex;align-items:baseline;gap:8px;padding:7px 8px;font-size:.85rem}
+.ocr-crop-text small{color:var(--accent);font:.72rem var(--mono)}
 .starter{padding:32px 0 31px;border-top:1px solid var(--line)}
 .route-grid{display:grid;margin-top:12px}
 .route{min-width:0;padding:clamp(18px,2.65vw,30px);background:#faf9f1;scroll-margin-top:20px}
@@ -258,9 +266,13 @@ aria-label="Five recorded bounding boxes drawn on the original image coordinate 
 <h3>PaddleOCR · Text on a bus</h3>
 <svg class="ocr-illustration" viewBox="0 0 600 300" role="img" aria-label="Illustration of a blue bus with two outlined signs reading 24 OLD TOWN and ELECTRIC BUS">
 <image href="vision-ocr-bus.webp" width="600" height="300"/>
-<rect x="151" y="88" width="130" height="22"/><rect x="230" y="170" width="267" height="34"/>
+<g class="ocr-regions"><rect x="151" y="88" width="130" height="22"/><rect x="230" y="170" width="267" height="34"/></g>
+<g class="ocr-region-labels"><rect x="151" y="71" width="22" height="17"/><text x="162" y="83">01</text>
+<rect x="230" y="153" width="22" height="17"/><text x="241" y="165">02</text></g>
 </svg>
-<figcaption class="footnote">The boxes mark text regions in the illustration.</figcaption></figure></div>
+<figcaption><div class="meta">Recognized text · PP-OCRv5</div>
+<ol class="ocr-crops"><li><div class="ocr-crop-image"><img src="vision-ocr-bus-crop-01.webp" alt="" width="385" height="65"></div><span class="ocr-crop-text"><small>01</small><strong>24 OLD TOWN</strong></span></li><li><div class="ocr-crop-image"><img src="vision-ocr-bus-crop-02.webp" alt="" width="789" height="100"></div><span class="ocr-crop-text"><small>02</small><strong>ELECTRIC BUS</strong></span></li></ol>
+<p class="footnote">PP-OCRv5 read these two manually selected crops.</p></figcaption></figure></div>
 <section id="start-ocr" class="wrap starter" aria-label="Getting started">
 <div class="label">Start here / Two ways to run</div><div class="route-grid"><article class="route"><div class="badge">CPU · Engineering run</div><h2>Run OCR on CPU.</h2><p>The recorded Pascal run used a fixed-size detection and recognition pipeline. A CPU starter package is pending. <a href="https://github.com/pisarev/crosspascal/blob/early-access-011/docs/KNOWN-LIMITATIONS.md">See the current release scope.</a></p></article><article class="route gpu-route"><div class="badge">GPU · Profile pending</div><h2>Prepare OCR for GPU.</h2><p>A GPU route needs CUDA builds for both detection and recognition and a verified Pascal consumer. The converter and setup steps for this OCR profile are pending.</p></article></div>
 </section></div>
