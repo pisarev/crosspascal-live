@@ -114,16 +114,23 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .yolo-demo label{display:inline-block;cursor:pointer;padding:5px 10px;border-bottom:2px solid transparent;color:var(--muted)}
 .yolo-demo input:checked+label{border-color:#55683a;color:var(--ink);font-weight:650}
 .yolo-demo input:focus-visible+label{outline:2px solid var(--accent)}
-.yolo-outputs{margin-top:12px;border-top:1px solid #c9cdbd;padding-top:12px}
+.yolo-outputs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px;align-items:start;margin-top:12px;border-top:1px solid #c9cdbd;padding-top:12px}
 .yolo-detection,.yolo-classification{display:none}
 #yolo-detect:checked~.yolo-outputs .yolo-detection,#yolo-classify:checked~.yolo-outputs .yolo-classification{display:block}
-.detection-layout{display:grid;grid-template-columns:minmax(70px,1fr) minmax(0,1.4fr);gap:12px;align-items:start}
-.detection-layout svg{width:100%;max-height:215px;display:block}
-.plot-ground{fill:#e9ebdf}.plot-boxes rect{fill:none;stroke:#55683a;stroke-width:5}.plot-boxes text{fill:#324300;font:700 46px var(--mono)}
+.yolo-image{margin:0;min-width:0}
+.yolo-image svg{display:block;width:min(100%,188px);height:auto;margin:0 auto}
+.yolo-image figcaption{display:grid;justify-items:center;gap:5px;padding-top:7px}
+.yolo-demo .yolo-box-toggle{display:flex;align-items:center;gap:5px;padding:0;border:0;color:var(--ink)}
+.yolo-box-toggle input{position:static;inline-size:auto;block-size:auto;clip-path:none;margin:0;accent-color:#55683a}
+.yolo-image:has(.yolo-box-toggle input:not(:checked)) .plot-boxes,
+#yolo-classify:checked~.yolo-outputs :is(.plot-boxes,.yolo-box-toggle){display:none}
+.plot-ground{fill:#e9ebdf}.plot-boxes rect{fill:none;stroke:#e4f5a5;stroke-width:5;filter:drop-shadow(0 0 3px #18231b)}
+.plot-boxes text{fill:#e4f5a5;stroke:#18231b;stroke-width:8;paint-order:stroke;font:700 46px var(--mono)}
 .yolo-results{margin:4px 0 0;padding:0;list-style:none;counter-reset:result}
 .yolo-results li{display:grid;grid-template-columns:1.2em minmax(0,1fr) auto;gap:6px;align-items:baseline;padding:5px 0;border-bottom:1px solid #c9cdbd;font-size:.84rem}
 .yolo-results li::before{counter-increment:result;content:counter(result);color:var(--muted);font: .75rem var(--mono)}
 .yolo-results strong{font:700 .78rem var(--mono)}
+.yolo-results span{overflow-wrap:anywhere}
 .topic-extra{margin-top:13px;color:var(--muted);font-size:.9rem}
 .ocr-demo{margin:0}
 .ocr-demo svg{display:block;width:100%;margin:12px 0;border:1px solid #bfc4b1}
@@ -236,16 +243,22 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">YOLO · Detection and classification</div>
 <h1>Find the objects.<br><mark>Name the scene.</mark></h1><p class="lead">Use YOLO11n in Delphi or Lazarus to locate objects in an image or classify the image as a whole.</p></div><div class="appframe yolo-demo">
 <div class="label">Recorded output · Windows x64 CPU</div><h3>YOLO11n in VisionModels</h3>
-<p class="footnote">Same 810 × 1080 input for both runs.</p>
+<p class="footnote">Both runs used the original 810 × 1080 photo.</p>
 <fieldset><legend>Choose a recorded YOLO run</legend>
 <input id="yolo-detect" name="yolo-run" type="radio" checked><label for="yolo-detect">Detection</label>
 <input id="yolo-classify" name="yolo-run" type="radio"><label for="yolo-classify">Classification</label>
-<div class="yolo-outputs">
-<div class="yolo-detection"><div class="detection-layout"><svg viewBox="0 0 810 1080" role="img"
-aria-label="Five recorded bounding boxes drawn on the original image coordinate grid">
-<rect class="plot-ground" width="100%" height="100%"/><g class="plot-boxes"><rect x="15" y="228" width="790" height="512"/><text x="27" y="276">1</text><rect x="671" y="397" width="138" height="482"/><text x="683" y="445">2</text><rect x="49" y="396" width="189" height="510"/><text x="61" y="444">3</text><rect x="223" y="405" width="119" height="455"/><text x="235" y="453">4</text><rect x="0" y="555" width="73" height="317"/><text x="12" y="603">5</text></g></svg>
-<div><div class="meta">Box · Class · Score</div><ol class="yolo-results numbered"><li><span>bus</span><strong>0.9143</strong></li><li><span>person</span><strong>0.8959</strong></li><li><span>person</span><strong>0.8921</strong></li><li><span>person</span><strong>0.8845</strong></li><li><span>person</span><strong>0.7041</strong></li></ol></div>
-</div><p class="footnote">The diagram plots the recorded boxes on a blank canvas.</p></div>
+<div class="yolo-outputs"><figure class="yolo-image">
+<svg viewBox="0 0 810 1080" role="img"
+aria-label="Original YOLO input showing a city bus and pedestrians">
+<rect class="plot-ground" width="100%" height="100%"/>
+<image href="https://raw.githubusercontent.com/ultralytics/ultralytics/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg" width="810" height="1080"/>
+<g class="plot-boxes"><rect x="15" y="228" width="790" height="512"/><text x="27" y="276">1</text><rect x="671" y="397" width="138" height="482"/><text x="683" y="445">2</text><rect x="49" y="396" width="189" height="510"/><text x="61" y="444">3</text><rect x="223" y="405" width="119" height="455"/><text x="235" y="453">4</text><rect x="0" y="555" width="73" height="317"/><text x="12" y="603">5</text></g></svg>
+<figcaption class="footnote">
+<label class="yolo-box-toggle"><input type="checkbox" checked> Show detection boxes</label>
+<a href="https://github.com/ultralytics/ultralytics/blob/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg">Original photo · Ultralytics</a>
+</figcaption></figure>
+<div class="yolo-detection"><div class="meta">Box · Class · Score</div>
+<ol class="yolo-results numbered"><li><span>bus</span><strong>0.9143</strong></li><li><span>person</span><strong>0.8959</strong></li><li><span>person</span><strong>0.8921</strong></li><li><span>person</span><strong>0.8845</strong></li><li><span>person</span><strong>0.7041</strong></li></ol></div>
 <div class="yolo-classification"><div class="meta">Top five labels · Model score</div>
 <ol class="yolo-results numbered"><li><span>minibus</span><strong>0.5338</strong></li><li><span>police_van</span><strong>0.3955</strong></li><li><span>minivan</span><strong>0.0197</strong></li><li><span>trolleybus</span><strong>0.0117</strong></li><li><span>amphibian</span><strong>0.0066</strong></li></ol></div>
 </div></fieldset></div></div>
