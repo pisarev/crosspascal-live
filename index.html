@@ -87,6 +87,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .topic-intro strong{color:var(--ink);font:600 clamp(1.35rem,2.3vw,2rem)/1.18 var(--serif);letter-spacing:-.035em}
 .topic-intro mark{color:inherit;background:linear-gradient(transparent 63%,#dbed9b 63%);padding:0 .08em}
 .topic-intro p{color:var(--muted);font-size:.82rem}
+.release-notice{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:0 0 12px;padding:8px 12px;border:1px solid #c9cbbd;border-radius:8px;background:#eeefe4;font-size:.86rem}
+.release-notice p{color:var(--muted)}
 .appframe,.route{border:1px solid #c9cbbd;border-radius:8px}
 .family-picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:0;padding:0;margin:0;min-inline-size:0}
 .family-picker > legend,.family-picker > input{position:absolute;inline-size:1px;block-size:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
@@ -100,6 +102,16 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 #family-qwen:checked~.family-output .family-qwen,#family-gemma:checked~.family-output .family-gemma{display:block}
 .family-gemma blockquote{font:600 clamp(1.35rem,2.1vw,1.85rem)/1.28 var(--serif);margin:8px 0 18px}
 .gemma-prompt{color:var(--muted);margin-top:13px;font-size:.9rem}
+.gemma-modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;min-inline-size:0;padding:0;border:0;margin:8px 0 0}
+.gemma-modes legend,.gemma-modes input{position:absolute;inline-size:1px;block-size:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.gemma-modes label{cursor:pointer;border:1px solid #c9cbbd;border-radius:6px;padding:5px 9px;font-size:.83rem}
+.gemma-modes input:checked+label{background:#e8edda;border-color:#849363}
+.gemma-modes input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+.gemma-inputs{grid-column:1/-1;padding-top:4px}
+.gemma-text-example,.gemma-image-example{display:none}
+#gemma-text:checked~.gemma-inputs .gemma-text-example,#gemma-image:checked~.gemma-inputs .gemma-image-example{display:block}
+.gemma-attachment{display:grid;grid-template-columns:minmax(72px,1fr) minmax(0,1.6fr);align-items:center;gap:10px;margin:8px 0;font-size:.9rem}
+.gemma-attachment svg{display:block;width:100%;height:auto}
 .topics [role=tablist]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .topics button{min-width:0;border:1px solid #c9cbbd;border-radius:8px;background:#faf9f1;color:var(--ink);text-align:left;padding:11px 13px;font:600 .91rem/1.3 var(--sans)}
 .topics button:hover{background:#f0f1e6}
@@ -153,6 +165,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .route-steps{padding:0;list-style:none;display:grid;gap:7px;margin:16px 0;font-size:.9rem}
 .route-steps li{display:grid;grid-template-columns:2.1em minmax(0,1fr);align-items:baseline}
 .route-steps b{font:700 .74rem var(--mono);color:var(--accent)}
+.language-examples{margin-top:18px}
+.language-examples .route-steps{max-width:79ch;margin-bottom:0}
 .cpu-models{border-top:1px solid #c9cdbd;padding-top:12px}
 .catalog{padding:30px 0 31px;scroll-margin-top:14px}
 .catalog summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;align-items:center;list-style:none}
@@ -184,17 +198,18 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#models">Model catalog</a><a href="#further">Project details</a></nav>
 </div></header>
 <main><div class="wrap topics">
-<div class="topic-intro"><strong>Run models <mark>without Python</mark>.</strong><p>Early access · Windows x64</p></div>
+<div class="topic-intro"><strong>Run models <mark>without Python</mark>.</strong><p>Windows x64 preview</p></div>
+<aside class="release-notice" aria-label="Release status"><strong>CrossPascal Early Access is coming soon.</strong><p>We expect to open public access in the next few days.</p></aside>
 <div role="tablist" aria-label="Model topics"><button type="button" role="tab" id="tab-language" aria-controls="topic-language" aria-selected="true" tabindex="0">Language</button><button type="button" role="tab" id="tab-yolo" aria-controls="topic-yolo" aria-selected="false" tabindex="-1">YOLO family</button><button type="button" role="tab" id="tab-vision" aria-controls="topic-vision" aria-selected="false" tabindex="-1">Vision models</button><button type="button" role="tab" id="tab-ocr" aria-controls="topic-ocr" aria-selected="false" tabindex="-1">OCR</button></div></div>
 <div id="topic-language" role="tabpanel" aria-labelledby="tab-language"><div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Language models · Local chat</div>
-<h1>Keep your app.<br><mark>Add a model.</mark></h1><p class="lead">Bring local chat into your Delphi or Lazarus app. Explore Qwen and see what’s coming to early access with Gemma.</p>
+<h1>Keep your app.<br><mark>Add a model.</mark></h1><p class="lead">Bring local chat into your Delphi or Lazarus app with Qwen or Gemma. Text prompts are tested. Prompts with images are planned for compatible models.</p>
 </div>
 <div class="appframe family-frame">
 <fieldset class="family-picker"><legend>Compare language model families</legend>
 <input type="radio" name="family" id="family-qwen" checked>
-<label for="family-qwen"><strong>Qwen</strong><span>In early access</span></label>
+<label for="family-qwen"><strong>Qwen</strong><span>Text tested · Vision planned</span></label>
 <input type="radio" name="family" id="family-gemma">
-<label for="family-gemma"><strong>Gemma</strong><span>Coming to early access</span></label>
+<label for="family-gemma"><strong>Gemma</strong><span>Text tested · Vision planned</span></label>
 <div class="family-output"><div class="family-qwen"><div class="label">Recorded output · QwenChat</div><h3>Qwen2.5-Coder-0.5B-Instruct</h3>
 <div class="meta">RTX 4060 Ti · CUDA sm_89 · Delphi 13.2</div><div class="appbody">
 <fieldset><legend>Choose a recorded run</legend>
@@ -206,10 +221,31 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <div class="meta">Stop · Manual token limit</div></div><div class="run brief"><p>Prompt · Print the integers from 1 through 300 in order, separated by commas. Do not add any introduction or stop early. Begin with 1, 2, 3, 4, 5.</p><blockquote>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 3</blockquote>
 <div class="meta">Stop · Brief token budget</div></div></div></fieldset>
 <p class="footnote">Select a token count to replay the corresponding recorded run.</p></div></div><div class="family-gemma">
-<div class="label">Recorded CPU trial</div><h3>Gemma 2 2B Instruct</h3>
-<div class="meta">Windows x64 · Experimental TVM profile</div>
-<p class="gemma-prompt">Completion · Capital of France</p><blockquote>Paris.</blockquote>
-<p class="footnote">The CPU trial matched PyTorch on all 12 generated tokens across three short prompts. A prepared CPU bundle is planned for early access.</p>
+<h3>Gemma 3n E4B</h3>
+<fieldset class="gemma-modes"><legend>Choose an input example</legend>
+<input type="radio" name="gemma-input" id="gemma-text" checked><label for="gemma-text">Text</label>
+<input type="radio" name="gemma-input" id="gemma-image"><label for="gemma-image">Text + image</label>
+<div class="gemma-inputs">
+<div class="gemma-text-example">
+<div class="label">Recorded text run</div>
+<div class="meta">Windows x64 · TVM CUDA · RTX 4060 Ti</div>
+<p class="gemma-prompt">Prompt · What is the capital of France? Answer with the city name only.</p><blockquote>Paris</blockquote>
+<p class="footnote">The experimental CUDA text profile matched the source-weight reference for this prompt.</p>
+</div>
+<div class="gemma-image-example">
+<div class="label">Planned · Example input</div>
+<div class="gemma-attachment">
+<svg viewBox="0 0 160 80" role="img" aria-label="A green circle above a line and a square below it">
+<rect width="160" height="80" rx="5" fill="#eeefe4"/>
+<path d="M18 40H142" stroke="#849363" stroke-width="1"/>
+<circle cx="63" cy="21" r="10" fill="#55683a"/>
+<rect x="86" y="49" width="20" height="20" rx="2" fill="#9b644d"/>
+</svg>
+<p><span class="meta">Prompt with attachment</span><br>Which shape is above the line?</p>
+</div>
+<p class="footnote">This illustrates an image prompt for a future CrossPascal vision profile.</p>
+</div>
+</div></fieldset>
 </div></div></fieldset></div></div>
 <div class="wrap">
 <section id="start" class="starter">
@@ -230,10 +266,20 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <li><b>03</b><span>Review the settings in Preview, then select <strong>Build</strong>.</span></li>
 <li><b>04</b><span>Open the exported bundle in QwenChat and run a prompt.</span></li></ol>
 <div class="actions"><a href="https://github.com/pisarev/crosspascal-convert/blob/main/INSTALL.md">Follow the GPU conversion guide</a><a href="https://github.com/pisarev/crosspascal/blob/early-access-011/docs/WINDOWS-EARLY-ACCESS.md">Windows prerequisites</a></div>
-<p class="access-note">This route is available for supported Qwen models. Gemma integration is in progress.</p>
+<p class="access-note">The Qwen steps above use QwenChat. GemmaChat has also been tested with an experimental Gemma 3n CUDA text bundle.</p>
 </article>
 </div>
-<p class="access-note"><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-011">View the early access release</a> · Early access downloads and setup guides require repository access.</p>
+<p class="access-note">Public downloads will be available when Early Access opens.</p>
+<article class="route language-examples" aria-labelledby="language-examples-title">
+<div class="badge">Planned · Qwen and Gemma</div><h2 id="language-examples-title">Five small Pascal examples.</h2>
+<p>Copy the pieces you need into your own app. Each example focuses on one task and runs without a visual interface.</p>
+<ol class="route-steps">
+<li><b>01</b><span><strong>Load a model.</strong> Open a CPU bundle in system RAM or load a GPU bundle for the selected device.</span></li>
+<li><b>02</b><span><strong>Set generation options.</strong> Set the output token limit and, where the profile supports sampling, adjust temperature, top-k, top-p, repetition penalty, and random seed.</span></li>
+<li><b>03</b><span><strong>Attach an image.</strong> Add images to a text prompt with a compatible vision model and runtime.</span></li>
+<li><b>04</b><span><strong>Run inference.</strong> Read the full answer or stream it as it arrives.</span></li>
+<li><b>05</b><span><strong>Unload the model.</strong> Close the session and release its memory.</span></li>
+</ol></article>
 </section>
 </div></div>
 <div id="topic-yolo" role="tabpanel" aria-labelledby="tab-yolo" hidden>
@@ -292,9 +338,9 @@ aria-label="Original YOLO input showing a city bus and pedestrians">
 <p class="topic-extra"><strong>YOLOv5–YOLO11 · Supported.</strong> The early access examples below use YOLO11n. Newer generations, such as YOLO26, are planned. <a href="?topic=yolo">See the YOLO examples</a>.</p>
 <div class="cards"><article class="card"><div class="catalog-quote">“Hello! How can I assist you today?”</div>
 <div class="badge">Early access · CUDA · Recorded output</div><h3>Qwen2.5</h3>
-<p>Generate text in QwenChat. This release supports pinned Instruct profiles and compatible local dense-text Qwen2 models.</p>
-<a href="https://github.com/pisarev/crosspascal/tree/early-access-011/examples/qwen-chat">Example and setup</a></article><article class="card"><div class="catalog-quote">“Paris.”</div><div class="badge">Recorded CPU trial · Release planned</div><h3>Gemma</h3>
-<p>Gemma 2 2B has an experimental native TVM CPU route. Gemma 3n E4B ran from Pascal through local Ollama. Its native TVM route and the family converter integration are in progress.</p></article><article class="card"><svg class="thumb" viewBox="0 0 320 160" role="img" aria-label="Illustration of a van and cyclist with example detection boxes">
+<p>Generate text in QwenChat with supported Qwen2 and Qwen2.5 text models. A separate Qwen2.5-VL profile for prompts with images is planned.</p>
+<a href="https://github.com/pisarev/crosspascal/tree/early-access-011/examples/qwen-chat">Example and setup</a></article><article class="card"><div class="catalog-quote">“Paris”</div><div class="badge">Recorded text run · Vision planned</div><h3>Gemma</h3>
+<p>Gemma 2 2B has an experimental CPU text route. Gemma 3n E4B has a verified TVM CUDA text profile. A CrossPascal text-and-image profile is planned.</p></article><article class="card"><svg class="thumb" viewBox="0 0 320 160" role="img" aria-label="Illustration of a van and cyclist with example detection boxes">
 <image href="vision-yolo-detect.webp" width="320" height="160" preserveAspectRatio="xMidYMid slice"/>
 <g fill="#18251f" font-family="system-ui, sans-serif" font-weight="650" font-size="9"><rect x="30" y="61" width="174" height="78" fill="none" stroke="#eeffac" stroke-width="1.5"/><rect x="30" y="47" width="28" height="14" rx="2" fill="#eeffac"/><text x="35" y="57">van</text><rect x="243" y="71" width="65" height="67" fill="none" stroke="#eeffac" stroke-width="1.5"/><rect x="243" y="57" width="49.5" height="14" rx="2" fill="#eeffac"/><text x="248" y="67">cyclist</text></g></svg><div class="badge">Early access · CPU · Illustration</div><h3>YOLO11n detection</h3><p>Find objects and return boxes, labels, and scores.</p><a href="https://github.com/pisarev/crosspascal/tree/early-access-011/examples/vision-models">Example and setup</a></article><article class="card"><svg class="thumb" viewBox="0 0 320 160" role="img" aria-label="Illustration of a green typewriter with an example classification label">
 <image href="vision-yolo-class.webp" width="320" height="160" preserveAspectRatio="xMidYMid slice"/>
@@ -326,7 +372,7 @@ aria-label="Original YOLO input showing a city bus and pedestrians">
 <li><a href="https://github.com/pisarev/crosspascal/blob/early-access-011/docs/KNOWN-LIMITATIONS.md">Known limitations</a></li>
 <li><a href="https://github.com/pisarev/crosspascal/blob/early-access-011/docs/ROADMAP.md">Project roadmap</a></li></ul></details>
 </section></div></main>
-<footer class="wrap footerrow"><span class="small">CrossPascal · Early access</span><a href="https://github.com/pisarev/crosspascal">Project on GitHub</a></footer>
+<footer class="wrap footerrow"><span class="small">CrossPascal · Project preview</span><a href="https://github.com/pisarev/crosspascal">Project on GitHub</a></footer>
 <script>
 const tabs = [...document.querySelectorAll('.topics [role=tab]')];
 const startLink = document.querySelector('nav a[href="#start"]');
