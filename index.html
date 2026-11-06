@@ -238,7 +238,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 </div></div>
 <div id="topic-yolo" role="tabpanel" aria-labelledby="tab-yolo" hidden>
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">YOLO · Detection and classification</div>
-<h1>Find the objects.<br><mark>Name the scene.</mark></h1><p class="lead">Use YOLO11n in Delphi or Lazarus to locate objects in an image or classify the image as a whole.</p></div><div class="appframe yolo-demo">
+<h1>Find the objects.<br><mark>Name the scene.</mark></h1><p class="lead">CrossPascal supports the YOLO family from YOLOv5 through YOLO11. The YOLO11n demos show object detection and image classification.</p></div><div class="appframe yolo-demo">
 <div class="label">Recorded output · Windows x64 CPU</div><h3>YOLO11n in VisionModels</h3>
 <p class="footnote">Both runs used the original 810 × 1080 photo.</p>
 <fieldset><legend>Choose a recorded YOLO run</legend>
@@ -261,7 +261,7 @@ aria-label="Original YOLO input showing a city bus and pedestrians">
 </div></fieldset></div></div>
 <section id="start-yolo" class="wrap starter" aria-label="Getting started">
 <div class="label">Start here / Two ways to run</div><div class="route-grid"><article class="route"><div class="badge">CPU · Tested on Windows x64</div><h2>Run YOLO11n on CPU.</h2><p>Get the Windows SDK and matching CPU model sources. Install the runtime, prepare the selected model with the converter, then open the bundle in VisionModels.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal/tree/early-access-011/examples/vision-models">Follow the CPU setup guide</a></div></article><article class="route gpu-route"><div class="badge">GPU · Profile pending</div><h2>Prepare for GPU.</h2><p>The VisionModels profiles in this release run on CPU. A GPU route needs a supported CUDA profile and a matching consumer. For a supported profile, select your CUDA architecture, review Preview, and build the bundle before opening it in that consumer.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal-convert/blob/main/INSTALL.md">See how GPU conversion works</a></div></article></div>
-<p class="topic-extra"><strong>Segmentation · Planned for early access.</strong> YOLO11n-seg has run in Pascal. A supported profile with model files and setup instructions is planned for an early access release.</p></section></div><div id="topic-vision" role="tabpanel" aria-labelledby="tab-vision" hidden>
+<p class="topic-extra"><strong>YOLO roadmap.</strong> Newer generations, such as YOLO26, are planned.</p><p class="topic-extra"><strong>Segmentation · Planned for early access.</strong> YOLO11n-seg has run in Pascal. A supported profile with model files and setup instructions is planned for an early access release.</p></section></div><div id="topic-vision" role="tabpanel" aria-labelledby="tab-vision" hidden>
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Computer vision · Beyond YOLO</div>
 <h1>Locate objects.<br><mark>Rank labels.</mark></h1><p class="lead">Run RT-DETR for object detection or use SqueezeNet and ResNet50 to classify an image on CPU.</p></div><figure class="appframe topic-preview">
 <div class="label">Illustrative output · Detection</div><h3>Object detection</h3><svg class="thumb" viewBox="0 0 320 160" role="img" aria-label="Illustration of two alpine cable cars with example detection boxes">
@@ -289,6 +289,7 @@ aria-label="Original YOLO input showing a city bus and pedestrians">
 <div class="wrap">
 <section id="models" class="catalog" aria-label="Model catalog">
 <details><summary><strong>Explore more models.</strong><span class="small">Find models you can run today, engineering previews, and planned additions.</span><span class="catalog-action">Model catalog</span></summary>
+<p class="topic-extra"><strong>YOLOv5–YOLO11 · Supported.</strong> The early access examples below use YOLO11n. Newer generations, such as YOLO26, are planned. <a href="?topic=yolo">See the YOLO examples</a>.</p>
 <div class="cards"><article class="card"><div class="catalog-quote">“Hello! How can I assist you today?”</div>
 <div class="badge">Early access · CUDA · Recorded output</div><h3>Qwen2.5</h3>
 <p>Generate text in QwenChat. This release supports pinned Instruct profiles and compatible local dense-text Qwen2 models.</p>
