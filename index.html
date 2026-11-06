@@ -127,6 +127,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .topic-extra{margin-top:13px;color:var(--muted);font-size:.9rem}
 .ocr-demo{margin:0}
 .ocr-demo svg{display:block;width:100%;margin:12px 0;border:1px solid #bfc4b1}
+.ocr-illustration rect{fill:none;stroke:#e4f5a5;stroke-width:2}
+.ocr-recorded{border-top:1px solid var(--line);margin:12px 0 0;padding:12px 0 0}
 .ocr-boxes rect{fill:none;stroke:#ffeb60;stroke-width:2.4}
 .ocr-boxes text{fill:#ffeb60;stroke:#212617;stroke-width:2.5;paint-order:stroke;font:700 15px var(--mono)}
 .ocr-results{margin:6px 0 10px;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(113px,1fr));gap:5px 12px}
@@ -259,12 +261,19 @@ aria-label="Five recorded bounding boxes drawn on the original image coordinate 
 <div class="label">Start here / Two ways to run</div><div class="route-grid"><article class="route"><div class="badge">CPU · Tested on Windows x64</div><h2>Run a vision model on CPU.</h2><p>Get the Windows SDK and matching CPU model sources. Install the runtime, prepare the selected model with the converter, then open the bundle in VisionModels.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal/tree/early-access-011/examples/vision-models">Follow the CPU setup guide</a></div></article><article class="route gpu-route"><div class="badge">GPU · Profile pending</div><h2>Prepare for GPU.</h2><p>The VisionModels profiles in this release run on CPU. A GPU route needs a supported CUDA profile and a matching consumer. For a supported profile, select your CUDA architecture, review Preview, and build the bundle before opening it in that consumer.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal-convert/blob/main/INSTALL.md">See how GPU conversion works</a></div></article></div>
 </section></div><div id="topic-ocr" role="tabpanel" aria-labelledby="tab-ocr" hidden>
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Optical character recognition · Engineering preview</div>
-<h1>Find the text.<br><mark>Read it locally.</mark></h1><p class="lead">The PaddleOCR engineering run located text in a street image and returned recognized text and boxes from Pascal.</p></div><figure class="appframe ocr-demo"><div class="label">Recorded engineering run · PP-OCRv5</div>
+<h1>Find the text.<br><mark>Read it locally.</mark></h1><p class="lead">The PaddleOCR engineering run located text in a street image and returned recognized text and boxes from Pascal.</p></div><figure class="appframe ocr-demo"><div class="label">Synthetic example · OCR</div>
 <h3>PaddleOCR · Text on a bus</h3>
+<svg class="ocr-illustration" viewBox="0 0 600 300" role="img" aria-label="Illustration of a blue bus with two outlined signs reading 24 OLD TOWN and ELECTRIC BUS">
+<image href="vision-ocr-bus.webp" width="600" height="300"/>
+<rect x="151" y="88" width="130" height="22"/><rect x="230" y="170" width="267" height="34"/>
+</svg>
+<p class="footnote">The boxes mark text regions in the illustration.</p>
+<details class="ocr-recorded"><summary>View the recorded PaddleOCR run</summary>
 <svg viewBox="446 305 467 335" role="img" aria-label="Close-up of the bus with nine detected text regions">
 <image href="https://raw.githubusercontent.com/ultralytics/ultralytics/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg" x="135" width="810" height="1080"/><g class="ocr-boxes"><rect x="590" y="328" width="21" height="11"/><text x="591" y="325">1</text><rect x="694" y="329" width="171" height="24"/><text x="695" y="326">2</text><rect x="574" y="335" width="39" height="14"/><text x="575" y="332">3</text><rect x="812" y="417" width="35" height="18"/><text x="813" y="414">4</text><rect x="763" y="425" width="119" height="35"/><text x="764" y="422">5</text><rect x="555" y="442" width="49" height="18"/><text x="556" y="439">6</text><rect x="686" y="541" width="69" height="46"/><text x="687" y="538">7</text><rect x="476" y="548" width="23" height="21"/><text x="477" y="545">8</text><rect x="687" y="567" width="132" height="54"/><text x="688" y="564">9</text></g></svg>
 <div class="meta">Recognized text · Raw output</div><ol class="ocr-results"><li><b>01</b><span>EMT</span></li><li><b>02</b><span>mis</span></li><li><b>03</b><span>MADRID</span></li><li><b>04</b><span>putvde</span></li><li><b>05</b><span>electricamEMTe</span></li><li><b>06</b><span>WmD</span></li><li><b>07</b><span>cero</span></li><li><b>08</b><span>10</span></li><li><b>09</b><span>emisiones</span></li></ol>
-<figcaption class="footnote"><a href="https://raw.githubusercontent.com/ultralytics/ultralytics/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg">View the source photograph from Ultralytics</a>. Numbers match the boxes above.</figcaption></figure></div>
+<p class="footnote"><a href="https://raw.githubusercontent.com/ultralytics/ultralytics/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg">View the source photograph from Ultralytics</a>. Numbers match the boxes above.</p>
+</details></figure></div>
 <section id="start-ocr" class="wrap starter" aria-label="Getting started">
 <div class="label">Start here / Two ways to run</div><div class="route-grid"><article class="route"><div class="badge">CPU · Engineering run</div><h2>Run OCR on CPU.</h2><p>The recorded Pascal run used a fixed-size detection and recognition pipeline. A CPU starter package is pending. <a href="https://github.com/pisarev/crosspascal/blob/early-access-011/docs/KNOWN-LIMITATIONS.md">See the current release scope.</a></p></article><article class="route gpu-route"><div class="badge">GPU · Profile pending</div><h2>Prepare OCR for GPU.</h2><p>A GPU route needs CUDA builds for both detection and recognition and a verified Pascal consumer. The converter and setup steps for this OCR profile are pending.</p></article></div>
 </section></div>
