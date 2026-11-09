@@ -358,11 +358,93 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  .workbench a.prepare-action::before{content:"";position:absolute;top:50%;left:0;right:0;height:44px;transform:translateY(-50%)}
  .workbench .actions,.prepare-feature .actions{row-gap:14px}
 }
+/* Repository relationships use real text; the connector lines are decorative. */
+.repo-section{padding:34px 0 20px;scroll-margin-top:28px;container-type:inline-size;container-name:repo}
+.repo-intro{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:32px;margin-bottom:24px}
+.repo-intro h2{font-size:clamp(2rem,3.8vw,3rem);margin:10px 0 0;letter-spacing:-.045em}
+.repo-intro>p{font-size:.96rem;line-height:1.6;color:var(--muted);margin:0}
+.repo-map{margin:0;padding:24px;border:1px solid #c9cbbd;border-radius:8px;background:#faf9f1}
+.repo-top{display:grid;grid-template-columns:minmax(0,1fr) 88px minmax(0,1.8fr);align-items:stretch}
+.repo-node{min-width:0;padding:18px 20px;border:1px solid #c9cbbd;border-radius:8px;background:#fffdf7;display:flex;flex-direction:column;align-items:flex-start}
+.repo-core{background:#eeefe4;border-color:#a5af90}
+.repo-kicker{font:600 .68rem/1.5 var(--mono);letter-spacing:.055em;text-transform:uppercase;color:var(--muted)}
+.repo-node h3{font:600 1.9rem/1.15 var(--serif);letter-spacing:-.025em;margin:8px 0 4px;width:100%}
+.repo-node h3 a{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+.repo-node h3 a:hover{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px}
+.repo-node h3 a>span[aria-hidden]{font:400 1rem var(--sans);color:var(--accent)}
+.repo-title-name{min-width:0}
+.repo-node p{font-size:.89rem;line-height:1.55;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.repo-node .repo-name{font:.72rem/1.5 var(--mono);letter-spacing:0;color:#596149;margin:0 0 12px}
+.repo-core-examples{display:block;margin-top:auto;padding-top:12px;color:var(--accent);font-size:.76rem;line-height:1.5;overflow-wrap:anywhere}
+.repo-bundle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;padding:0 9px;color:var(--muted);font:.65rem/1.35 var(--mono);text-align:center}
+.repo-bundle>span{max-width:7ch}
+.repo-bundle svg{width:100%;height:12px;overflow:visible;fill:none;stroke:#7c895f;stroke-width:1.3}
+.repo-bundle svg path{stroke-dasharray:3 3}
+.repo-branches{height:62px;position:relative}
+.repo-branches svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#88946f;stroke-width:1;vector-effect:non-scaling-stroke;overflow:visible}
+.repo-branches path{vector-effect:non-scaling-stroke}
+.repo-branches>span{position:absolute;top:11px;left:calc(66.8% + 10px);padding:1px 5px;background:#faf9f1;color:var(--muted);font:.67rem/1.5 var(--mono);white-space:nowrap}
+.repo-libraries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.repo-node-heading{width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.repo-number{font:.72rem var(--mono);color:#757e64}
+.repo-library h3{font-size:1.75rem}
+.repo-stack{margin-top:auto;padding-top:14px;font-size:.72rem;line-height:1.5;color:#586149;overflow-wrap:anywhere}
+.repo-source-link{display:flex;gap:16px;align-items:baseline;margin:16px 0 20px;color:var(--muted);font-size:.75rem;line-height:1.5}
+.repo-dependency{flex-shrink:0;color:var(--accent);font-weight:600}
+.repo-dependency>span{margin:0 5px}
+.repo-independence{display:grid;grid-template-columns:215px minmax(0,1fr);gap:24px;align-items:center;padding:20px 0;border-top:1px solid #c9cbbd}
+.repo-independence>strong{font:600 1.8rem/1.3 var(--serif);letter-spacing:-.025em}
+.repo-independence mark{color:inherit;background:linear-gradient(transparent 54%,#dbed9b 54%,#dbed9b 94%,transparent 94%);padding:0 2px}
+.repo-independence p{font-size:.89rem;line-height:1.6;color:var(--muted);margin:0}
+.repo-legend{display:flex;flex-wrap:wrap;gap:7px 24px;color:var(--muted);font-size:.7rem;line-height:1.5}
+.repo-legend>span>span{color:var(--accent);font-size:1rem;margin-right:5px}
+.repo-notes{margin:16px 0 0;border-top:0;padding:0}
+.repo-notes>summary{font-size:.86rem;font-weight:600;color:var(--accent);padding:8px 0;list-style:none;display:flex;gap:10px;align-items:baseline}
+.repo-notes>summary::-webkit-details-marker{display:none}
+.repo-notes>summary::before{content:'+';font:400 1.1rem var(--mono)}
+.repo-notes[open]>summary::before{content:'−'}
+.repo-elsewhere{margin-top:0}
+.repo-notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:16px 0 8px}
+.repo-notes-grid>div{min-width:0}
+.repo-notes-grid h3{font-size:1rem;margin:0 0 12px}
+.repo-notes-grid p,.repo-notes-grid dd{font-size:.88rem;line-height:1.6;color:var(--muted);margin:0 0 12px}
+.repo-notes-grid a{font-size:.86rem;overflow-wrap:anywhere}
+.repo-site-list{margin:0}
+.repo-site-list dt{font-weight:600;margin:0 0 3px}
+.repo-site-list dd{margin-left:0}
+@media(max-width:1000px){
+ .repo-top{grid-template-columns:minmax(0,1fr) 76px minmax(0,1.65fr)}
+ .repo-map{padding:20px}.repo-node{padding:16px}
+ .repo-independence{grid-template-columns:185px minmax(0,1fr);gap:20px}
+}
+@container repo (max-width:44rem){
+ .repo-intro{grid-template-columns:1fr;gap:14px}
+ .repo-top{grid-template-columns:minmax(0,1fr)}
+ .repo-convert{order:0}.repo-bundle{order:1;flex-direction:row;gap:12px;padding:10px 0;min-height:48px}
+ .repo-bundle>span{max-width:none}
+ .repo-bundle svg{width:38px;height:12px;transform:rotate(90deg)}
+ .repo-core{order:2}
+ .repo-branches{height:46px}
+ .repo-branches svg{display:none}
+ .repo-branches::before{content:'';position:absolute;left:24px;top:0;bottom:6px;border-left:1px solid #88946f}
+ .repo-branches::after{content:'';position:absolute;left:21px;bottom:6px;width:6px;height:6px;border-right:1px solid #88946f;border-bottom:1px solid #88946f;transform:rotate(45deg)}
+ .repo-branches>span{left:36px;top:13px;font-size:.7rem}
+ .repo-libraries{grid-template-columns:1fr;gap:12px}
+ .repo-node h3,.repo-library h3{font-size:1.7rem}
+ .repo-source-link{display:block;margin:14px 0 18px}
+ .repo-dependency{display:block;margin-bottom:5px}
+ .repo-independence{grid-template-columns:1fr;gap:10px;padding:18px 0}
+ .repo-independence>strong{font-size:1.8rem}
+ .repo-legend{gap:7px 18px}
+ .repo-notes-grid{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:420px){.repo-map{padding:14px}.repo-node{padding:16px}.repo-intro h2{font-size:2rem}}
+
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
 <span class="draft">Early Access 017</span></div>
-<nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#models">Model catalog</a><a href="#further">Project details</a></nav>
+<nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#models">Model catalog</a><a href="#repositories">Repositories</a><a href="#further">Project details</a></nav>
 </div></header>
 <main><div class="wrap topics">
 <div class="topic-intro"><strong>Run models <mark>without installing Python</mark>.</strong><p>Windows x64 · Delphi 13.2 · Lazarus 4.8</p></div>
@@ -553,8 +635,86 @@ aria-label="Original YOLO input showing a city bus and pedestrians">
 <g fill="#18251f" font-family="system-ui, sans-serif" font-weight="650" font-size="9"><path d="M98 138Q75 142 62 123Q47 101 62 74Q74 59 81 42Q84 32 94 30L95 24Q98 12 107 5Q111 2 112 8Q102 14 101 29Q113 29 118 45Q121 57 130 68Q146 87 137 111Q130 139 98 138Z" fill="#dcf296" fill-opacity=".35" stroke="#f0ffbd" stroke-width="1.6"/><rect x="10" y="10" width="91" height="16" rx="3" fill="#eeffac"/><text x="17" y="21">Query · yellow pear</text></g></svg><div class="badge">Roadmap · Illustration</div><h3>Grounded-SAM</h3><p>Use a text query to guide object selection and segmentation. This is a roadmap direction; no working EA017 example is claimed.</p></article>
 </div></details>
 </section>
+<section id="repositories" class="repo-section" aria-labelledby="repo-title">
+<div class="repo-intro">
+<div><div class="label">Repository map</div><h2 id="repo-title">Use the parts you need.</h2></div>
+<p>Find the right source repository, see how the parts connect, and choose what belongs in your application. Five code repositories form the toolkit; the website is separate.</p>
+</div>
+<figure class="repo-map" aria-labelledby="repo-title" aria-describedby="repo-purpose repo-legend">
+<div class="repo-top">
+<article class="repo-node repo-convert">
+<span class="repo-kicker">Model preparation</span>
+<h3><a href="https://github.com/pisarev/crosspascal-convert"><span class="repo-title-name">Converter</span> <span aria-hidden="true">↗</span></a></h3>
+<p class="repo-name">crosspascal-convert</p>
+<p>Turn a supported checkpoint into a native model bundle.</p>
+</article>
+<div class="repo-bundle" aria-label="The converter produces model bundles used by CrossPascal applications"><span>model bundle</span><svg viewBox="0 0 70 12" aria-hidden="true"><path d="M0 6H67m-5-4 5 4-5 4"/></svg></div>
+<article class="repo-node repo-core">
+<span class="repo-kicker">Applications &amp; shared Pascal code</span>
+<h3><a href="https://github.com/pisarev/crosspascal"><span class="repo-title-name">Cross<wbr>Pascal</span> <span aria-hidden="true">↗</span></a></h3>
+<p class="repo-name">crosspascal</p>
+<p>AI examples, image adapters, and algorithms. Each feature uses the libraries it needs.</p>
+<span class="repo-core-examples">QwenChat · GemmaChat · VisionModels · MarkerLite</span>
+</article>
+</div>
+<div class="repo-branches" aria-hidden="true">
+<svg viewBox="0 0 1000 62" preserveAspectRatio="none"><path d="M668 0V23H166.7V59 M668 23H833.3V59 M500 23V59"/><path class="repo-arrowheads" d="m162.7 54 4 5 4-5 m325.3 0 4 5 4-5 m325.3 0 4 5 4-5"/></svg>
+<span>uses, by feature</span>
+</div>
+<div class="repo-libraries">
+<article class="repo-node repo-library">
+<div class="repo-node-heading"><span class="repo-kicker">Model &amp; tensor execution</span><span class="repo-number" aria-hidden="true">01</span></div>
+<h3><a href="https://github.com/pisarev/crosspascal-tvm"><span class="repo-title-name">TVM</span> <span aria-hidden="true">↗</span></a></h3>
+<p class="repo-name">crosspascal-tvm</p>
+<p>Load native modules, exchange tensors, and call compiled functions from Pascal.</p>
+<div class="repo-stack">Apache TVM · TVM FFI · DLPack</div>
+</article>
+<article class="repo-node repo-library">
+<div class="repo-node-heading"><span class="repo-kicker">Images &amp; video</span><span class="repo-number" aria-hidden="true">02</span></div>
+<h3><a href="https://github.com/pisarev/crosspascal-opencv"><span class="repo-title-name">OpenCV</span> <span aria-hidden="true">↗</span></a></h3>
+<p class="repo-name">crosspascal-opencv</p>
+<p>Process images, use native Mat buffers, and read or write video through CrossCV.</p>
+<div class="repo-stack">OpenCV + contrib · CrossCV bridge</div>
+</article>
+<article class="repo-node repo-library">
+<div class="repo-node-heading"><span class="repo-kicker">Document images</span><span class="repo-number" aria-hidden="true">03</span></div>
+<h3><a href="https://github.com/pisarev/crosspascal-leptonica"><span class="repo-title-name">Leptonica</span> <span aria-hidden="true">↗</span></a></h3>
+<p class="repo-name">crosspascal-leptonica</p>
+<p>Create and transform Pix images, convert pixel formats, and prepare scans for processing.</p>
+<div class="repo-stack">Leptonica · image codecs</div>
+</article>
+</div>
+<p class="repo-source-link"><span class="repo-dependency"><span class="repo-title-name">TVM</span> <span aria-hidden="true">→</span> OpenCV</span><span>The Pascal TVM interface also uses OpenCV image types. Text-only Qwen does not load the OpenCV runtime.</span></p>
+<figcaption id="repo-purpose" class="repo-independence">
+<strong><mark>AI is optional.</mark></strong>
+<p>OpenCV, Leptonica, and TVM are ready-to-use libraries for your own Pascal applications. AI features depend on them; the libraries do not require the AI features or the converter. Each library uses its matching native runtime.</p>
+</figcaption>
+<div id="repo-legend" class="repo-legend"><span><span aria-hidden="true">→</span> Points to a library being used</span><span><span class="repo-dashed" aria-hidden="true">⇢</span> A model bundle moves between tools</span><span>Dependencies vary by feature.</span></div>
+</figure>
+<details class="repo-notes">
+<summary>Dependency details &amp; website repositories</summary>
+<div class="repo-notes-grid">
+<div><h3>Choose a route</h3><p>OpenCV and Leptonica can each be used without TVM, the converter, or an AI model. The TVM interface can be reused without the CrossPascal demo applications; its current Pascal unit also needs OpenCV type declarations.</p><p>The converter and Pascal consumers use the same pinned Apache TVM / TVM FFI runtime. A ready model bundle lets you skip conversion. Pure Pascal geometry and set algorithms need none of these native runtimes.</p><a href="https://github.com/pisarev/crosspascal-tvm/blob/main/README.md">Read the TVM dependency notes</a></div>
+<div><h3>The website lives separately</h3><dl class="repo-site-list"><div><dt><a href="https://github.com/pisarev/crosspascal-homepage">crosspascal-homepage</a></dt><dd>Homepage source and design staging.</dd></div><div><dt><a href="https://github.com/pisarev/crosspascal-live">crosspascal-live</a></dt><dd>The published GitHub Pages website you are reading.</dd></div></dl><p>Neither website repository is needed to build or run a Pascal application. Other and archived projects are outside this SDK dependency map.</p><a href="https://github.com/pisarev?tab=repositories">Browse all repositories by the author</a></div>
+</div>
+</details>
+<details class="repo-notes repo-elsewhere">
+<summary>Other public repositories · outside this SDK</summary>
+<div class="repo-notes-grid">
+<div><h3>Formulas and plots</h3>
+<p><a href="https://github.com/pisarev/graphbuilder-npp">graphbuilder-npp</a> uses <a href="https://github.com/pisarev/pascal-crossgraph">pascal-crossgraph</a> and <a href="https://github.com/pisarev/pascal-mathparser">pascal-mathparser</a>. The plotting engine also depends on the parser.</p>
+<p><a href="https://github.com/pisarev/mathparser-live">mathparser-live</a> is their website, with a WebAssembly build of the parser.</p>
+<p><a href="https://github.com/pisarev/nashira3d">nashira3d</a> uses the parser for 3D surface plots. <a href="https://github.com/pisarev/nashira3d-live">nashira3d-live</a> presents the project and runs its surface core in the browser.</p></div>
+<div><h3>Upstream work and directories</h3>
+<p><a href="https://github.com/pisarev/tvm-ffi">tvm-ffi</a> is a fork of Apache TVM FFI. The current CrossPascal SDK installs the official upstream package, so this fork is not a required checkout.</p>
+<p><a href="https://github.com/pisarev/nppPluginList">nppPluginList</a> and <a href="https://github.com/pisarev/awesome-pascal">awesome-pascal</a> are directory forks. <a href="https://github.com/pisarev/pisarev">pisarev</a> holds the GitHub profile. None is a CrossPascal runtime dependency.</p>
+<p>Archived projects remain in the <a href="https://github.com/pisarev?tab=repositories">full repository list</a>.</p></div>
+</div>
+</details>
+</section>
+
 <section id="further" class="further"><div class="label">Go further</div><h2>Build it into your own app.</h2>
-<div class="further-grid"><details><summary>Explore the five projects</summary>
+<div class="further-grid"><details><summary>Library APIs and ready-to-run examples</summary>
 <p>Start with the matched SDK. It groups the five projects from the same release. You can also use the library bindings in your own Pascal applications.</p>
 <ul class="details-links component-list"><li><a href="https://github.com/pisarev/crosspascal">CrossPascal</a><p>Examples and shared Pascal code.</p></li><li><a href="https://github.com/pisarev/crosspascal-convert">Converter</a><p>Build a model bundle for a supported CPU or CUDA target.</p></li><li><a href="https://github.com/pisarev/crosspascal-tvm">Apache TVM 0.26.0</a><p>Run compiled models from Delphi or Lazarus. The Pascal runtime bindings use TVM FFI 0.1.14 and support module loading, tensor exchange through DLPack, and function calls.</p></li><li><a href="https://github.com/pisarev/crosspascal-opencv">OpenCV 4.10.0 + contrib</a><p>Use OpenCV in your own Pascal applications through CrossCV. The bindings name 1,336 bridge entry points across image processing, video, and other modules. IMat provides higher-level image operations.</p></li><li><a href="https://github.com/pisarev/crosspascal-leptonica">Leptonica 1.87.0</a><p>Use Leptonica directly from Pascal for image analysis and document processing. The bindings name all 2,743 functions declared in the bundled allheaders.h. IPix provides higher-level image operations.</p></li></ul>
 <p class="small">Versions match this release. The counts describe binding names. Runtime validation covers the scenarios listed in each project’s documentation.</p><p class="small">Try an image or native-library example with the same preparation steps:</p><ul class="details-links component-list">
