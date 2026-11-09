@@ -30,7 +30,7 @@ footer{padding:25px 0 44px}.footerrow{display:flex;justify-content:space-between
 
 html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--line:#c7ccd5;--serif:system-ui,sans-serif}
 .wrap{width:min(1200px,calc(100% - 64px))}
-.mast{min-height:64px}.brand{font-size:1.15rem;letter-spacing:-.04em}
+.mast{min-height:64px}.mast-brand{display:flex;align-items:baseline;gap:8px 22px;flex-wrap:wrap;max-width:100%}.mast-brand > *{white-space:nowrap}.brand{font-size:1.15rem;letter-spacing:-.04em}
 .hero-new h1{font-size:clamp(3rem,7.8vw,7.5rem);letter-spacing:-.08em;font-weight:800;margin:13px 0 20px}
 .hero-new p{max-width:58ch}.hero-new .lead{font-size:clamp(1rem,1.6vw,1.25rem)}
 .route-note{font-size:.8rem;margin-top:14px}
@@ -227,8 +227,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 @media(max-width:600px){.availability-key{display:grid;gap:8px}.language-examples .route-steps{grid-template-columns:1fr}.image-run{grid-template-columns:72px minmax(0,1fr);gap:10px}.image-run img{width:72px;height:96px}.release-notice{align-items:flex-start}}
 </style></head>
 <body class="workbench">
-<header><div class="wrap mast"><a class="brand" href="#">CrossPascal</a>
-<span class="draft">Early Access 015</span>
+<header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
+<span class="draft">Early Access 015</span></div>
 <nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#models">Model catalog</a><a href="#further">Project details</a></nav>
 </div></header>
 <main><div class="wrap topics">
