@@ -129,8 +129,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .yolo-detection,.yolo-classification{display:none}
 #yolo-detect:checked~.yolo-outputs .yolo-detection,#yolo-classify:checked~.yolo-outputs .yolo-classification{display:block}
 .yolo-image{margin:0;min-width:0}
-.yolo-image svg{display:block;width:min(100%,188px);height:auto;margin:0 auto}
-.yolo-image figcaption{display:grid;justify-items:center;gap:5px;padding-top:7px}
+.yolo-image svg{display:block;width:min(100%,188px);height:auto;margin:0;border:1px solid var(--line)}
+.yolo-image figcaption{display:grid;justify-items:start;gap:5px;padding-top:7px}
 .yolo-demo .yolo-box-toggle{display:flex;align-items:center;gap:5px;padding:0;border:0;color:var(--ink)}
 .yolo-box-toggle input{position:static;inline-size:auto;block-size:auto;clip-path:none;margin:0;accent-color:#55683a}
 .yolo-image:has(.yolo-box-toggle input:not(:checked)) .plot-boxes,
@@ -220,7 +220,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .image-run .meta{font-size:.65rem}
 .cpu-quickstart li{font-size:.88rem;margin-bottom:9px;color:var(--muted)}
 .cpu-quickstart code{font-size:.85em}
-.language-examples .route-steps{grid-template-columns:1fr 1fr;gap:12px 24px;max-width:none}
+.language-examples .route-steps{grid-template-columns:minmax(0,1fr);gap:12px;max-width:none}
 .language-examples h2{font-size:clamp(1.8rem,3vw,2.5rem)}
 .catalog-intro{margin:17px 0 0;color:var(--muted);font-size:.9rem;max-width:82ch}
 .catalog-placeholder{aspect-ratio:2/1;display:grid;place-items:center;margin-bottom:12px;background:#e5e8e5;color:#616a63;font:600 1.05rem/1.4 var(--sans);text-align:center;padding:12px}
@@ -238,14 +238,14 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .appframe,.route,.card,.further-grid > details,.desk-copy{container-type:inline-size;container-name:prose}
 .card > .thumb{height:auto;aspect-ratio:2/1}
 .route-steps span{min-width:0;overflow-wrap:anywhere}
-.yolo-demo fieldset{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));gap:8px}
+.yolo-demo fieldset{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .yolo-demo fieldset > label{display:flex;align-items:center;min-height:38px;padding:7px 10px;border:1px solid #c9cbbd;border-radius:6px;font-size:.88rem;line-height:1.35}
 .yolo-demo fieldset > input:checked+label{background:#e8edda;border-color:#849363}
-.yolo-outputs{grid-column:1/-1;border-top:0;padding-top:0;margin-top:8px}
+.yolo-outputs{grid-column:1/-1;grid-template-columns:minmax(0,188px) minmax(0,1fr);gap:24px;border-top:0;padding-top:0;margin-top:8px}
 .yolo-image figcaption{gap:8px;padding-top:12px}
 .yolo-box-toggle{align-items:baseline}
 .yolo-demo .yolo-box-toggle input{flex-shrink:0}
-.yolo-image figcaption a{line-height:1.5;text-align:center}
+.yolo-image figcaption a{line-height:1.5;text-align:left}
 .ocr-crop-text strong{min-width:0;overflow-wrap:anywhere}
 .further-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);margin-top:24px;align-items:start}
 .further-grid > details{margin:0;padding-top:20px;min-width:0}
@@ -271,7 +271,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 @container(max-width:24rem){
  .yolo-outputs{grid-template-columns:minmax(0,1fr);gap:20px}
  .yolo-image svg{width:min(100%,220px)}
- .yolo-image figcaption{justify-items:center}
+ .yolo-image figcaption{justify-items:start}
  .ocr-crops{grid-template-columns:minmax(0,1fr);gap:12px}
 }
 @media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -282,6 +282,11 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  .topic-extra{grid-template-columns:minmax(0,1fr);gap:12px}
 }
 @media(max-width:720px){.cards{grid-template-columns:minmax(0,1fr)}}
+
+/* One visual treatment for standalone images; captions share their left edge. */
+.workbench{--media-radius:5px}
+.thumb,.yolo-image svg,.ocr-demo > svg,.image-run img,.catalog-quote,.catalog-placeholder,.ocr-crops li{border-radius:var(--media-radius);overflow:hidden}
+@container(max-width:16rem){.yolo-demo fieldset{grid-template-columns:minmax(0,1fr)}}
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
