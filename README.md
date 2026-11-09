@@ -2,7 +2,7 @@
 
 [Open the interactive homepage](https://pisarev.github.io/crosspascal-live/).
 
-The homepage describes Early Access 015 and its separately published CPU model bundles. Downloads require access to the private CrossPascal repositories.
+The homepage describes Early Access 017 and its separately published CPU model bundles. CrossPascal source code and release downloads are public; no account or invitation is required.
 
 Green **Available in EA015** labels identify working downloadable examples for their stated profiles. Grey **Coming soon** labels identify future examples; the card text distinguishes internal results from roadmap work. Illustrations and retained recordings are explicitly labelled.
 
