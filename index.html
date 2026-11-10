@@ -609,6 +609,17 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  .appbody label b{flex:0 0 3ch}
 }
 
+
+.catalog{container-type:inline-size;container-name:catalog;font-size:1rem}
+.catalog .cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,28rem),1fr))}
+.catalog .card{container-name:prose catalog-reading;font-size:.9rem}
+.catalog :is(.catalog-quote,.catalog-placeholder){aspect-ratio:auto;min-block-size:50cqw;overflow:visible}
+@container catalog-reading (min-width:28em){
+ .workbench .card>p{text-align:justify;text-align-last:left;hyphens:auto}
+}
+@container catalog (min-width:28em){
+ .workbench .catalog-intro{text-align:justify;text-align-last:left;hyphens:auto}
+}
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
