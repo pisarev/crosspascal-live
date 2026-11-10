@@ -572,19 +572,22 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .workbench .demo-start p,.workbench .starter details p{
  max-width:none;max-inline-size:none;inline-size:100%
 }
-/* Evaluate prose against its own column; narrow and enlarged text stay ragged right. */
-.route{container-name:prose reading}
+.route,.appframe,.desk-copy{container-name:prose reading}
 .reading-body{container-type:inline-size;container-name:prose reading;font-size:1rem}
 .license-grid>article,.repo-notes-grid>div,.reference-body,.pending-body,
-.repo-independence,#repository-details>.disclosure-body,#license-details>.disclosure-body{
- container-type:inline-size;container-name:reading
-}
-.route,.further-grid>details,.license-grid>article,.repo-notes-grid>div,
-.repo-independence,#repository-details>.disclosure-body,#license-details>.disclosure-body{font-size:1rem}
+.repo-independence,#repository-details>.disclosure-body,#license-details>.disclosure-body,
+.starter,.demo-start{container-type:inline-size;container-name:reading}
+.route,.appframe,.desk-copy,.starter,.demo-start,.further-grid>details,
+.license-grid>article,.repo-notes-grid>div,.repo-independence,
+#repository-details>.disclosure-body,#license-details>.disclosure-body{font-size:1rem}
+/* The prose decision depends on usable line width, including secondary explanations. */
+.workbench :is(p,figcaption.footnote){text-align:left;text-align-last:left;hyphens:manual}
 @container reading (min-width:28em){
- .workbench :is(.route>p:not(.license-note):not(.access-note),
- .further-grid p:not(.small),.license-grid p:not(:has(a~a)),.license-intro,
- .repo-notes-grid p,.repo-map-intro,.repo-independence p,.pending-body>p){
+ .workbench :is(.route>p,.starter>p,.starter details p,.further-grid p,
+ .demo-start>.license-note,.appframe p.footnote,.appframe p.license-note,
+ .appframe figcaption.footnote,.desk-copy>.scope-note,.license-grid p,
+ .license-intro,.license-footnote,.repo-notes-grid p,.repo-map-intro,
+ .repo-independence p,.pending-body>p):not([data-align="start"]){
   text-align:justify;text-align-last:left;hyphens:auto
  }
 }
@@ -913,10 +916,10 @@ Model := TLanguageModel.Create;
 <div class="license-grid">
 <article><h3>CrossPascal source</h3><p><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/LICENSE">MIT</a> covers original code and documentation. The Binarize and Curve units retain <a href="https://github.com/pisarev/crosspascal/blob/early-access-017/rtl-algorithms/licenses/MPL-1.1.txt">MPL 1.1</a> and their original attribution. Other third-party notices remain applicable.</p></article>
 <article><h3>Qwen models</h3><p><strong>Qwen2.5-VL 3B Instruct</strong>, downloaded by QwenChat and ImagePrompt, uses the <a href="https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/66285546d2b821cf421d4f5eb2576359d3770cd3/LICENSE">Qwen Research License</a> for non-commercial research and evaluation. Commercial use needs a separate license from Alibaba Cloud. Built with Qwen.</p><p>The dense Qwen2.5 0.5B/1.5B and Coder 0.5B checkpoints shown here use Apache-2.0. Check the exact checkpoint; licenses differ across the family.</p></article>
-<article><h3>Gemma 2 and Gemma 3n</h3><p>The <a href="https://ai.google.dev/gemma/terms">Gemma Terms of Use</a> and <a href="https://ai.google.dev/gemma/prohibited_use_policy">Prohibited Use Policy</a> apply to these models and derivatives. Bundles include the terms, NOTICE, modification records and redistribution guidance.</p><p>When redistributing, retain these files, mark changes and carry the use restrictions into your distribution agreement.</p></article>
+<article><h3>Gemma 2 and Gemma 3n</h3><p data-align="start">The <a href="https://ai.google.dev/gemma/terms">Gemma Terms of Use</a> and <a href="https://ai.google.dev/gemma/prohibited_use_policy">Prohibited Use Policy</a> apply to these models and derivatives. Bundles include the terms, NOTICE, modification records and redistribution guidance.</p><p>When redistributing, retain these files, mark changes and carry the use restrictions into your distribution agreement.</p></article>
 <article><h3>YOLO and other vision models</h3><p><strong>YOLO11n detection and classification:</strong> AGPL-3.0. Its source and network-use obligations can affect an application using the model. Review <a href="https://www.ultralytics.com/license">Ultralytics licensing</a> for proprietary use.</p><p><strong>SqueezeNet 1.1, ResNet50 and RT-DETR R18vd:</strong> Apache-2.0 as declared in the pinned source packs. <a href="https://github.com/pisarev/crosspascal/releases/download/early-access-015/crosspascal-cpu-model-sources-ea008.zip">Model sources, original checkpoints and conversion recipes</a>.</p></article>
 <article><h3>OpenCV and FFmpeg</h3><p>OpenCV uses Apache-2.0 with separate dependency notices. This CrossCV build statically links LGPL-2.1-or-later FFmpeg. Keep the matching sources available with the binary and follow the included <strong>RELINKING.md</strong> for a full-source rebuild with modified FFmpeg.</p><p><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-015/crosspascal-opencv-native-sources-windows-x64-ea008.zip">Matching OpenCV / FFmpeg sources and notices</a>. OpenCV nonfree algorithms can carry separate patent considerations.</p></article>
-<article><h3>Leptonica and the runtime</h3><p>Leptonica, image codecs, Apache TVM, TVM FFI, DLPack, Python and its packages keep their upstream terms. The runtime includes their license files; the preparation helper 7zr is public domain.</p><p><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-015/crosspascal-leptonica-native-sources-windows-x64-ea008.zip">Matching Leptonica sources and notices</a> · <a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/LICENSE-SCOPE.md">Complete license scope and component notices</a>.</p></article>
+<article><h3>Leptonica and the runtime</h3><p>Leptonica, image codecs, Apache TVM, TVM FFI, DLPack, Python and its packages keep their upstream terms. The runtime includes their license files; the preparation helper 7zr is public domain.</p><p data-align="start"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-015/crosspascal-leptonica-native-sources-windows-x64-ea008.zip">Matching Leptonica sources and notices</a> · <a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/LICENSE-SCOPE.md">Complete license scope and component notices</a>.</p></article>
 </div>
 <p class="license-footnote">The bus photograph is the original <a href="https://github.com/ultralytics/ultralytics/blob/790f9c067c9a3548acf7c6925cea14de9ad77787/ultralytics/assets/bus.jpg">Ultralytics sample</a>, accompanied by its upstream AGPL-3.0 notice. Use images you have the right to use in your own application. Keep every supplied license, copyright notice and modification record when redistributing a package.</p>
 </div></details></section>
