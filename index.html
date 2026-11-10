@@ -493,17 +493,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .route-grid.single-route>.route h2{font-size:clamp(1.8rem,2.8vw,2.35rem);text-align:left;text-wrap:initial}
 .route-grid.single-route>.route>p{max-width:76ch}
 .demo-view{min-width:0;align-self:start}
-.demo-view-tabs{display:flex;gap:8px;margin-bottom:12px}
-.demo-view-tabs button{min-height:44px;padding:9px 14px;border:1px solid #c9cbbd;border-radius:6px;background:transparent;color:var(--muted);font:500 .86rem/1.4 var(--sans)}
-.demo-view-tabs button[aria-selected=true]{color:var(--ink);background:#e8edda;border-color:#849363;font-weight:600}
-.demo-view-tabs button:hover{background:#f0f1e6}
 .demo-panel>.appframe{width:100%;margin:0}
-.code-panel{padding:var(--panel-padding);margin:0;min-width:0}
-.code-panel pre{margin:16px 0 18px;padding:16px;background:#eeefe4;border:1px solid #d4d8c7;border-radius:6px;overflow:auto;max-width:100%;font:.8rem/1.7 var(--mono);tab-size:2}
-.code-panel code{font:inherit;white-space:pre;overflow-wrap:normal;word-break:normal}
-.code-keyword{color:#324300;font-weight:700}
-.code-panel .footnote{font-size:.82rem;line-height:1.6}
-.code-source{display:inline-block;margin-top:14px;font-size:.86rem}
 .demo-start{margin-top:18px}
 .demo-start .actions{margin-top:0}
 .demo-start .license-note{font-size:.78rem;line-height:1.6;margin:8px 0 0}
@@ -546,18 +536,17 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 
 
 
-.workbench :is(.demo-view-tabs button,.gemma-modes>label,.yolo-demo fieldset>label,.topics [role=tab]){
+.workbench :is(.gemma-modes>label,.yolo-demo fieldset>label,.topics [role=tab]){
  position:relative;display:flex;align-items:center;min-height:30px;min-block-size:30px;
  padding:3.92px 14px;font:600 .9rem/1.4 var(--sans)
 }
 .workbench .topics [role=tab][aria-selected=true]{font-weight:700}
 .tab-preview{font-size:.625rem;line-height:1.2;padding:2px 6px}
 @media(pointer:coarse){
- .workbench :is(.demo-view-tabs button,.gemma-modes>label,.yolo-demo fieldset>label,.topics [role=tab])::before{
+ .workbench :is(.gemma-modes>label,.yolo-demo fieldset>label,.topics [role=tab])::before{
   content:"";position:absolute;inset-inline:0;top:50%;height:44px;transform:translateY(-50%)
  }
  .topics [role=tablist]{row-gap:14px}
- .demo-view-tabs{margin-block:7px 19px;row-gap:14px}
 }
 
 
@@ -621,10 +610,6 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  .workbench .catalog-intro{text-align:justify;text-align-last:left;hyphens:auto}
 }
 
-.code-panel pre{color:#252b36}
-.code-panel .code-keyword{color:#b42332;font-weight:400}
-.code-panel .code-procedure{color:#7040a8}
-.code-panel :is(.code-string,.code-number){color:#164b99}
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
@@ -642,7 +627,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <div aria-labelledby="tab-language" id="topic-language" role="tabpanel"><div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Language models | Local chat</div>
 <h1>Keep your app.<br/><mark>Add a model.</mark></h1><p class="lead">Bring local chat into your Delphi or Lazarus app with Qwen or Gemma. Generate text, ask about a photo, and keep inference on your own computer.</p><p class="scope-note"><strong>Text + image is available:</strong> Qwen2.5-VL 3B on CPU and Gemma 3n E4B on CPU or CUDA. Dense Qwen2.5 and Gemma 2 remain text-only. <a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/MODEL-MODALITIES.md">Compare supported inputs</a>.</p>
 </div>
-<div class="demo-view" data-demo="language"><div aria-label="Language demonstration" class="demo-view-tabs" role="tablist"><button aria-controls="demo-language-result" aria-selected="true" id="demo-language-result-tab" role="tab" tabindex="0" type="button">Result</button><button aria-controls="demo-language-code" aria-selected="false" id="demo-language-code-tab" role="tab" tabindex="-1" type="button">Pascal code</button></div><div aria-labelledby="demo-language-result-tab" class="demo-panel" id="demo-language-result" role="tabpanel"><div class="appframe family-frame">
+<div class="demo-view" data-demo="language"><div class="demo-panel" id="demo-language-result"><div class="appframe family-frame">
 <fieldset class="family-picker"><legend>Compare language model families</legend>
 <input checked="" id="family-qwen" name="family" type="radio"/>
 <label for="family-qwen"><strong>Qwen</strong><span>CUDA text | CPU text + image</span></label>
@@ -677,30 +662,8 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <p class="footnote">Actual output from the supplied Pascal image example. Both chat apps also accept an image. CPU image generation can take minutes. <a href="https://github.com/pisarev/crosspascal/tree/early-access-017/examples/gemma-chat">Try it in GemmaChat</a>.</p>
 </div>
 </div></fieldset>
-</div></div></fieldset></div></div><div aria-labelledby="demo-language-code-tab" class="appframe code-panel" hidden="" id="demo-language-code" role="tabpanel"><div class="label">Pascal | Shared language API</div><pre aria-label="Pascal source excerpt" tabindex="0"><code><span class="code-keyword">procedure</span> <span class="code-procedure">Run</span>;
-<span class="code-keyword">var</span>
-  Model: TLanguageModel;
-  Output: TConsoleOutput;
-  Options: TLanguageOptions;
-  Images: TExampleImages;
-<span class="code-keyword">begin</span>
-  RequireArguments(False);
-  Images := ExampleImages;
-  Output := TConsoleOutput.Create;
-  Model := TLanguageModel.Create;
-  <span class="code-keyword">try</span>
-    Model.OnStatus := Output.Status;
-    Model.Load(ExampleArgument(<span class="code-number">1</span>), ExampleArgument(<span class="code-number">2</span>));
-    Options := DefaultLanguageOptions;
-    PrintAnswer(Model.Generate(ExamplePrompt(<span class="code-string">'Say hello in English.'</span>, <span class="code-string">'Describe this image.'</span>),
-      Options, Images));
-    Model.Unload;
-  <span class="code-keyword">finally</span>
-    Model.Free;
-    Output.Free;
-  <span class="code-keyword">end</span>;
-<span class="code-keyword">end</span>;</code></pre><p class="footnote">The complete Run procedure from the console example. ExampleSupport supplies the prepared paths, image list, and console helpers.</p><a class="code-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/language-models/GenerateText.dpr">View full source <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M4 3h9v9"/></svg></a></div><div class="demo-start" data-family="qwen"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-QwenChat-ea017.zip">Prepare QwenChat</a><a href="#start">First-run steps</a></div><p class="demo-requirements">CPU starter | about 24 GiB RAM | 5.2 GiB model download | AVX2 + FMA</p><p class="license-note">The starter uses <strong>Qwen-VL 3B</strong> under the <a href="https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/66285546d2b821cf421d4f5eb2576359d3770cd3/LICENSE">Qwen Research License</a> for non-commercial research and evaluation. Commercial use needs a separate license. Built with Qwen.</p></div>
-<div class="demo-start" data-family="gemma" hidden=""><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-GemmaChat-ea017.zip">Prepare GemmaChat</a><a href="#start">First-run steps</a></div><p class="demo-requirements">CPU starter | about 32 GiB RAM | 11.4 GiB model download | AVX2 + FMA</p><p class="license-note"><a href="https://ai.google.dev/gemma/terms">Gemma Terms</a> and the <a href="https://ai.google.dev/gemma/prohibited_use_policy">Prohibited Use Policy</a> apply to the supplied Gemma 3n model.</p></div></div></div>
+</div></div></fieldset></div></div><div class="demo-start" data-family="qwen"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-QwenChat-ea017.zip">Prepare QwenChat</a><a href="#start">First-run steps</a><a class="example-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/qwen-chat/QwenChat.Main.pas">View example source</a></div><p class="demo-requirements">CPU starter | about 24 GiB RAM | 5.2 GiB model download | AVX2 + FMA</p><p class="license-note">The starter uses <strong>Qwen-VL 3B</strong> under the <a href="https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/66285546d2b821cf421d4f5eb2576359d3770cd3/LICENSE">Qwen Research License</a> for non-commercial research and evaluation. Commercial use needs a separate license. Built with Qwen.</p></div>
+<div class="demo-start" data-family="gemma" hidden=""><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-GemmaChat-ea017.zip">Prepare GemmaChat</a><a href="#start">First-run steps</a><a class="example-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/gemma-chat/GemmaChat.Main.pas">View example source</a></div><p class="demo-requirements">CPU starter | about 32 GiB RAM | 11.4 GiB model download | AVX2 + FMA</p><p class="license-note"><a href="https://ai.google.dev/gemma/terms">Gemma Terms</a> and the <a href="https://ai.google.dev/gemma/prohibited_use_policy">Prohibited Use Policy</a> apply to the supplied Gemma 3n model.</p></div></div></div>
 <div class="wrap">
 <section class="starter" id="start">
 <div class="label">Start here / Two ways to run</div>
@@ -749,7 +712,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 </div></div>
 <div aria-labelledby="tab-yolo" hidden="" id="topic-yolo" role="tabpanel">
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">YOLO | Detection and classification</div>
-<h1>Find the objects.<br/><mark>Name the scene.</mark></h1><p class="lead">The available YOLO11n examples show object detection and image classification. More YOLO generations and task types have internal results; their downloadable examples are coming next.</p></div><div class="demo-view" data-demo="yolo"><div aria-label="Vision demonstration" class="demo-view-tabs" role="tablist"><button aria-controls="demo-yolo-result" aria-selected="true" id="demo-yolo-result-tab" role="tab" tabindex="0" type="button">Result</button><button aria-controls="demo-yolo-code" aria-selected="false" id="demo-yolo-code-tab" role="tab" tabindex="-1" type="button">Pascal code</button></div><div aria-labelledby="demo-yolo-result-tab" class="demo-panel" id="demo-yolo-result" role="tabpanel"><div class="appframe yolo-demo">
+<h1>Find the objects.<br/><mark>Name the scene.</mark></h1><p class="lead">The available YOLO11n examples show object detection and image classification. More YOLO generations and task types have internal results; their downloadable examples are coming next.</p></div><div class="demo-view" data-demo="yolo"><div class="demo-panel" id="demo-yolo-result"><div class="appframe yolo-demo">
 <div class="label">Recorded output | Windows x64 CPU</div><h3>YOLO11n in VisionModels</h3>
 <p class="footnote">Both runs used the original 810 × 1080 photo.</p>
 <fieldset><legend>Choose a recorded YOLO run</legend>
@@ -768,34 +731,16 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <ol class="yolo-results numbered"><li><span>bus</span><strong>0.9143</strong></li><li><span>person</span><strong>0.8959</strong></li><li><span>person</span><strong>0.8921</strong></li><li><span>person</span><strong>0.8845</strong></li><li><span>person</span><strong>0.7041</strong></li></ol></div>
 <div class="yolo-classification"><div class="meta">Top five labels | Model score</div>
 <ol class="yolo-results numbered"><li><span>minibus</span><strong>0.5338</strong></li><li><span>police_van</span><strong>0.3955</strong></li><li><span>minivan</span><strong>0.0197</strong></li><li><span>trolleybus</span><strong>0.0117</strong></li><li><span>amphibian</span><strong>0.0066</strong></li></ol></div>
-</div></fieldset></div></div><div aria-labelledby="demo-yolo-code-tab" class="appframe code-panel" hidden="" id="demo-yolo-code" role="tabpanel"><div class="label">Pascal | CPU vision API</div><pre aria-label="Pascal source excerpt" tabindex="0"><code><span class="code-keyword">procedure</span> <span class="code-procedure">TVisionWorker.Execute</span>;
-<span class="code-keyword">begin</span>
-  <span class="code-keyword">try</span>
-    FResult := RunCpuVision(FProfile, FBundle, FRuntime, FImagePath, FImageSHA256, FImage,
-      <span class="code-keyword">nil</span>, FAuditDirectory);
-  <span class="code-keyword">except</span>
-    <span class="code-keyword">on</span> E: Exception <span class="code-keyword">do</span> FErrorText := E.ClassName + <span class="code-string">': '</span> + E.Message;
-  <span class="code-keyword">end</span>;
-  FImage := <span class="code-keyword">nil</span>;
-<span class="code-keyword">end</span>;</code></pre><p class="footnote">The supplied GUI runs CPU inference on a worker thread. Its fields hold the selected profile, bundle, runtime, and input image.</p><a class="code-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/vision-models/VisionModels.Main.pas">View full source <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M4 3h9v9"/></svg></a></div><div class="demo-start"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a><a href="#start-yolo">First-run steps</a></div><p class="license-note">YOLO11n uses AGPL-3.0. <a href="https://www.ultralytics.com/license">Review Ultralytics licensing</a> before proprietary use.</p></div></div></div>
+</div></fieldset></div></div><div class="demo-start"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a><a href="#start-yolo">First-run steps</a><a class="example-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/vision-models/VisionModels.Main.pas">View example source</a></div><p class="license-note">YOLO11n uses AGPL-3.0. <a href="https://www.ultralytics.com/license">Review Ultralytics licensing</a> before proprietary use.</p></div></div></div>
 <section aria-label="Getting started" class="wrap starter" id="start-yolo">
 <div class="label">Start here / Ready to run on CPU</div><div class="route-grid single-route"><article class="route" data-status="available"><span class="availability available">Available in EA017</span><div class="badge">CPU | Tested on Windows x64</div><h2>Run YOLO11n on CPU.</h2><p>Run <code class="file-name">Prepare.cmd</code> to download VisionModels, its native libraries, a sample image and all five CPU profiles. Open the prepared .dproj in Delphi 13.2 or .lpi in Lazarus 4.8, select Windows 64-bit and Run. Choose a profile, then select Run on CPU.</p><p class="license-note"><strong>YOLO11n:</strong> AGPL-3.0. Review <a href="https://www.ultralytics.com/license">Ultralytics licensing</a> before a proprietary deployment. The other three supplied vision profiles use Apache-2.0. <a href="#licenses">Terms and source packages</a>.</p><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a></div></article></div><div class="pending-routes"><details class="pending-route"><summary><span class="availability soon">Coming soon</span><strong>GPU route in preparation</strong><span class="pending-action">Details</span></summary><div class="pending-body"><p>The VisionModels profiles in this release run on CPU. A GPU route needs a supported CUDA profile and a matching consumer. For a supported profile, select your CUDA architecture, review Preview, and build the bundle before opening it in that consumer.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal-convert/blob/main/INSTALL.md">See how GPU conversion works</a></div></div></details></div>
 <p class="topic-extra"><span class="availability soon">Coming soon</span><span><strong>More YOLO examples:</strong> segmentation, pose, oriented boxes and additional generations. Internal results include representatives from v3u through v26; release support will be stated per verified profile.</span></p></section></div><div aria-labelledby="tab-vision" hidden="" id="topic-vision" role="tabpanel">
 <div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Computer vision | Beyond YOLO</div>
-<h1>Locate objects.<br/><mark>Rank labels.</mark></h1><p class="lead">Run RT-DETR for object detection or use SqueezeNet and ResNet50 to classify an image on CPU.</p></div><div class="demo-view" data-demo="vision"><div aria-label="Vision demonstration" class="demo-view-tabs" role="tablist"><button aria-controls="demo-vision-result" aria-selected="true" id="demo-vision-result-tab" role="tab" tabindex="0" type="button">Result</button><button aria-controls="demo-vision-code" aria-selected="false" id="demo-vision-code-tab" role="tab" tabindex="-1" type="button">Pascal code</button></div><div aria-labelledby="demo-vision-result-tab" class="demo-panel" id="demo-vision-result" role="tabpanel"><figure class="appframe topic-preview">
+<h1>Locate objects.<br/><mark>Rank labels.</mark></h1><p class="lead">Run RT-DETR for object detection or use SqueezeNet and ResNet50 to classify an image on CPU.</p></div><div class="demo-view" data-demo="vision"><div class="demo-panel" id="demo-vision-result"><figure class="appframe topic-preview">
 <div class="label">Illustrative output | Detection</div><h3>Object detection</h3><svg aria-label="Illustration of two alpine cable cars with example detection boxes" class="thumb" role="img" viewbox="0 0 320 160">
 <image height="160" href="vision-vision-hero.webp" preserveaspectratio="xMidYMid slice" width="320"/>
 <g fill="#18251f" font-family="system-ui, sans-serif" font-size="9" font-weight="650"><rect fill="none" height="58" stroke="#eeffac" stroke-width="1.5" width="72" x="59" y="60"></rect><rect fill="#eeffac" height="14" rx="2" width="60.5" x="59" y="46"></rect><text x="64" y="56">cable car</text><rect fill="none" height="19" stroke="#eeffac" stroke-width="1.5" width="23" x="251" y="84"></rect><rect fill="#eeffac" height="14" rx="2" width="60.5" x="251" y="70"></rect><text x="256" y="80">cable car</text></g></svg>
-<figcaption class="footnote">The Pascal example returns bounding boxes and class scores.</figcaption></figure></div><div aria-labelledby="demo-vision-code-tab" class="appframe code-panel" hidden="" id="demo-vision-code" role="tabpanel"><div class="label">Pascal | CPU vision API</div><pre aria-label="Pascal source excerpt" tabindex="0"><code><span class="code-keyword">procedure</span> <span class="code-procedure">TVisionWorker.Execute</span>;
-<span class="code-keyword">begin</span>
-  <span class="code-keyword">try</span>
-    FResult := RunCpuVision(FProfile, FBundle, FRuntime, FImagePath, FImageSHA256, FImage,
-      <span class="code-keyword">nil</span>, FAuditDirectory);
-  <span class="code-keyword">except</span>
-    <span class="code-keyword">on</span> E: Exception <span class="code-keyword">do</span> FErrorText := E.ClassName + <span class="code-string">': '</span> + E.Message;
-  <span class="code-keyword">end</span>;
-  FImage := <span class="code-keyword">nil</span>;
-<span class="code-keyword">end</span>;</code></pre><p class="footnote">The same CPU interface handles RT-DETR, YOLO, and classifier profiles. The GUI passes the selected profile and prepared paths.</p><a class="code-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/vision-models/VisionModels.Main.pas">View full source <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 13 13 3M4 3h9v9"/></svg></a></div><div class="demo-start"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a><a href="#start-vision">First-run steps</a></div><p class="license-note">RT-DETR, SqueezeNet and ResNet50 profiles use Apache-2.0. The same package also includes YOLO11n under AGPL-3.0. <a href="#licenses">Compare model terms</a>.</p></div></div></div>
+<figcaption class="footnote">The Pascal example returns bounding boxes and class scores.</figcaption></figure></div><div class="demo-start"><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a><a href="#start-vision">First-run steps</a><a class="example-source" href="https://github.com/pisarev/crosspascal/blob/4e922781d8ca265ea44785d05f562eed85b3ad34/examples/vision-models/VisionModels.Main.pas">View example source</a></div><p class="license-note">RT-DETR, SqueezeNet and ResNet50 profiles use Apache-2.0. The same package also includes YOLO11n under AGPL-3.0. <a href="#licenses">Compare model terms</a>.</p></div></div></div>
 <section aria-label="Getting started" class="wrap starter" id="start-vision">
 <div class="label">Start here / Ready to run on CPU</div><div class="route-grid single-route"><article class="route" data-status="available"><span class="availability available">Available in EA017</span><div class="badge">CPU | Tested on Windows x64</div><h2>Run a vision model on CPU.</h2><p>Run <code class="file-name">Prepare.cmd</code> to download VisionModels, its native libraries, a sample image and all five CPU profiles. Open the prepared .dproj in Delphi 13.2 or .lpi in Lazarus 4.8, select Windows 64-bit and Run. Choose a profile, then select Run on CPU.</p><p class="license-note"><strong>YOLO11n:</strong> AGPL-3.0. Review <a href="https://www.ultralytics.com/license">Ultralytics licensing</a> before a proprietary deployment. The other three supplied vision profiles use Apache-2.0. <a href="#licenses">Terms and source packages</a>.</p><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-VisionModels-ea017.zip">Prepare VisionModels</a></div></article></div><div class="pending-routes"><details class="pending-route"><summary><span class="availability soon">Coming soon</span><strong>GPU route in preparation</strong><span class="pending-action">Details</span></summary><div class="pending-body"><p>The VisionModels profiles in this release run on CPU. A GPU route needs a supported CUDA profile and a matching consumer. For a supported profile, select your CUDA architecture, review Preview, and build the bundle before opening it in that consumer.</p><div class="actions"><a href="https://github.com/pisarev/crosspascal-convert/blob/main/INSTALL.md">See how GPU conversion works</a></div></div></details></div>
 </section></div><div aria-labelledby="tab-ocr" hidden="" id="topic-ocr" role="tabpanel">
@@ -1028,30 +973,6 @@ if (sectionTargets.has(location.hash)) requestAnimationFrame(() => {
 });
 
 
-for (const demo of document.querySelectorAll('.demo-view')) {
-  const viewTabs = [...demo.querySelectorAll('.demo-view-tabs [role="tab"]')];
-  const chooseView = selected => {
-    for (const tab of viewTabs) {
-      const active = tab === selected;
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
-    }
-  };
-  for (const tab of viewTabs) {
-    tab.addEventListener('click', () => chooseView(tab));
-    tab.addEventListener('keydown', event => {
-      const index = viewTabs.indexOf(tab);
-      const nextIndex = {ArrowRight: (index + 1) % viewTabs.length,
-        ArrowLeft: (index + viewTabs.length - 1) % viewTabs.length,
-        Home: 0, End: viewTabs.length - 1}[event.key];
-      if (nextIndex === undefined) return;
-      event.preventDefault();
-      chooseView(viewTabs[nextIndex]);
-      viewTabs[nextIndex].focus();
-    });
-  }
-}
 const syncFamilyAction = () => {
   const family = document.getElementById('family-gemma').checked ? 'gemma' : 'qwen';
   for (const action of document.querySelectorAll('.demo-start[data-family]')) {
