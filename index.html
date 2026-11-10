@@ -560,6 +560,35 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  .demo-view-tabs{margin-block:7px 19px;row-gap:14px}
 }
 
+
+/* A vertical set of equivalent downloads shares one button width. */
+.further-grid>details:first-child :is(.component-list .prepare-action,.actions .prepare-action){
+ inline-size:14rem;max-inline-size:100%;justify-content:center
+}
+.further-grid .component-list{grid-template-columns:minmax(0,1fr)}
+.further-grid .component-list>li{min-inline-size:0}
+/* Notes belong to the same column as the panel or disclosure they explain. */
+.workbench .demo-start{inline-size:100%;min-inline-size:0}
+.workbench .demo-start p,.workbench .starter details p{
+ max-width:none;max-inline-size:none;inline-size:100%
+}
+/* Evaluate prose against its own column; narrow and enlarged text stay ragged right. */
+.route{container-name:prose reading}
+.reading-body{container-type:inline-size;container-name:prose reading;font-size:1rem}
+.license-grid>article,.repo-notes-grid>div,.reference-body,.pending-body,
+.repo-independence,#repository-details>.disclosure-body,#license-details>.disclosure-body{
+ container-type:inline-size;container-name:reading
+}
+.route,.further-grid>details,.license-grid>article,.repo-notes-grid>div,
+.repo-independence,#repository-details>.disclosure-body,#license-details>.disclosure-body{font-size:1rem}
+@container reading (min-width:28em){
+ .workbench :is(.route>p:not(.license-note):not(.access-note),
+ .further-grid p:not(.small),.license-grid p:not(:has(a~a)),.license-intro,
+ .repo-notes-grid p,.repo-map-intro,.repo-independence p,.pending-body>p){
+  text-align:justify;text-align-last:left;hyphens:auto
+ }
+}
+
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
@@ -863,20 +892,20 @@ Model := TLanguageModel.Create;
 </div></details>
 </section>
 <section class="further" id="further"><div class="label">Go further</div><h2>Build it into your own app.</h2>
-<div class="further-grid"><details><summary>Library APIs and ready-to-run examples</summary>
+<div class="further-grid"><details><summary>Library APIs and ready-to-run examples</summary><div class="reading-body">
 <p>Start with the matched SDK. It groups the five projects from the same release. You can also use the library bindings in your own Pascal applications.</p>
 <ul class="details-links component-list"><li><a href="https://github.com/pisarev/crosspascal">CrossPascal</a><p>Examples and shared Pascal code.</p></li><li><a href="https://github.com/pisarev/crosspascal-convert">Converter</a><p>Build a model bundle for a supported CPU or CUDA target.</p></li><li><a href="https://github.com/pisarev/crosspascal-tvm">Apache TVM 0.26.0</a><p>Run compiled models from Delphi or Lazarus. The Pascal runtime bindings use TVM FFI 0.1.14 and support module loading, tensor exchange through DLPack, and function calls.</p></li><li><a href="https://github.com/pisarev/crosspascal-opencv">OpenCV 4.10.0 + contrib</a><p>Use OpenCV in your own Pascal applications through CrossCV. The bindings name 1,336 bridge entry points across image processing, video, and other modules. IMat provides higher-level image operations.</p></li><li><a href="https://github.com/pisarev/crosspascal-leptonica">Leptonica 1.87.0</a><p>Use Leptonica directly from Pascal for image analysis and document processing. The bindings name all 2,743 functions declared in the bundled allheaders.h. IPix provides higher-level image operations.</p></li></ul>
 <p class="small">Versions match this release. The counts describe binding names. Runtime validation covers the scenarios listed in each project’s documentation.</p><p class="small">Try an image or native-library example with the same preparation steps:</p><ul class="details-links component-list">
 <li><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-MarkerLite-ea017.zip">Prepare MarkerLite</a><p>Open a sample image and try the image-processing actions.</p></li>
 <li><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-CrossCVHello-ea017.zip">Prepare CrossCVHello</a><p>Check the OpenCV bridge with a small generated image.</p></li>
 <li><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-LoadResizeSave-ea017.zip">Prepare LoadResizeSave</a><p>Resize the sample image and save the result.</p></li>
-<li><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-LeptonicaHello-ea017.zip">Prepare LeptonicaHello</a><p>Run a small Leptonica image check.</p></li></ul><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/crosspascal-examples-prepare-ea017.zip">Prepare all 13 examples</a><a href="https://github.com/pisarev/crosspascal/blob/main/docs/PREPARE-EXAMPLES.md">Read the setup guide</a></div></details>
-<details><summary>Check compatibility, validation, and the roadmap</summary>
+<li><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/Prepare-LeptonicaHello-ea017.zip">Prepare LeptonicaHello</a><p>Run a small Leptonica image check.</p></li></ul><div class="actions"><a class="btn prepare-action" href="https://github.com/pisarev/crosspascal/releases/download/early-access-017/crosspascal-examples-prepare-ea017.zip">Prepare all 13 examples</a><a href="https://github.com/pisarev/crosspascal/blob/main/docs/PREPARE-EXAMPLES.md">Read the setup guide</a></div></div></details>
+<details><summary>Check compatibility, validation, and the roadmap</summary><div class="reading-body">
 <p>This release was tested on Windows x64 with Delphi 13.2 and Lazarus 4.8. This release uses Windows DLLs. Linux shared libraries (.so) are outside its verification matrix. Separate engineering runs, including PaddleOCR, have their own scope.</p>
 <ul class="details-links"><li><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/CAPABILITIES.md">What works in early access</a></li>
 <li><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/RELEASE-NOTES.md">What was tested</a></li>
 <li><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/KNOWN-LIMITATIONS.md">Known limitations</a></li>
-<li><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/ROADMAP.md">Project roadmap</a></li></ul></details>
+<li><a href="https://github.com/pisarev/crosspascal/blob/early-access-017/docs/ROADMAP.md">Project roadmap</a></li></ul></div></details>
 <details class="setup-reference" id="prepare-details"><summary>Preparation, downloads and first-run help</summary><div class="reference-body"><p><code class="file-name">Prepare.cmd</code> downloads the SDK, native libraries and the CPU model needed by the selected example, verifies the files, and sets the project paths.</p><p class="prepare-benefits">Downloads are verified and shared across examples. Interrupted package downloads can resume. <a href="#licenses">Check model and library licenses before use.</a></p><div class="release-notice"><strong>Early Access · EA017</strong><p>Source code and release downloads are public. Prepare needs no token; an optional GitHub sign-in can raise the request limit. <a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-017">SDK &amp; examples</a> · <a href="https://github.com/pisarev/crosspascal/releases/tag/cpu-models-ea015">CPU model bundles</a></p></div><div class="actions"><a href="https://github.com/pisarev/crosspascal/blob/main/docs/PREPARE-EXAMPLES.md">How preparation works</a></div></div></details></div></section>
 <section aria-labelledby="licenses-title" class="license-section" id="licenses"><div class="label">Licenses and redistribution</div><details class="section-disclosure" id="license-details"><summary><h2 id="licenses-title">Check the terms for your model.</h2><span class="disclosure-description">Model and library terms differ. Review the terms before downloading or redistributing.</span><span class="disclosure-action"><span class="when-closed">Review licenses</span><span class="when-open">Hide licenses</span></span></summary><div class="disclosure-body">
 
