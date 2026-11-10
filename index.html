@@ -656,11 +656,20 @@ Model := TLanguageModel.Create;
 <span class="code-keyword">try</span>
   Model.OnStatus := Output.Status;
   Model.Load(
-    ExampleArgument(1), ExampleArgument(2));
+    ExampleArgument(1),
+    ExampleArgument(2)
+  );
   Options := DefaultLanguageOptions;
-  PrintAnswer(Model.Generate(ExamplePrompt(
-    'Say hello in English.', 'Describe this image.'),
-    Options, Images));
+  PrintAnswer(
+    Model.Generate(
+      ExamplePrompt(
+        'Say hello in English.',
+        'Describe this image.'
+      ),
+      Options,
+      Images
+    )
+  );
   Model.Unload;
 <span class="code-keyword">finally</span>
   Model.Free;
@@ -738,8 +747,15 @@ Model := TLanguageModel.Create;
 <span class="code-keyword">begin</span>
   <span class="code-keyword">try</span>
     FResult := RunCpuVision(
-      FProfile, FBundle, FRuntime, FImagePath,
-      FImageSHA256, FImage, <span class="code-keyword">nil</span>, FAuditDirectory);
+      FProfile,
+      FBundle,
+      FRuntime,
+      FImagePath,
+      FImageSHA256,
+      FImage,
+      <span class="code-keyword">nil</span>,
+      FAuditDirectory
+    );
   <span class="code-keyword">except</span>
     <span class="code-keyword">on</span> E: Exception <span class="code-keyword">do</span>
       FErrorText := E.ClassName + ': ' + E.Message;
@@ -758,8 +774,15 @@ Model := TLanguageModel.Create;
 <span class="code-keyword">begin</span>
   <span class="code-keyword">try</span>
     FResult := RunCpuVision(
-      FProfile, FBundle, FRuntime, FImagePath,
-      FImageSHA256, FImage, <span class="code-keyword">nil</span>, FAuditDirectory);
+      FProfile,
+      FBundle,
+      FRuntime,
+      FImagePath,
+      FImageSHA256,
+      FImage,
+      <span class="code-keyword">nil</span>,
+      FAuditDirectory
+    );
   <span class="code-keyword">except</span>
     <span class="code-keyword">on</span> E: Exception <span class="code-keyword">do</span>
       FErrorText := E.ClassName + ': ' + E.Message;
