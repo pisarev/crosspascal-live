@@ -635,7 +635,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 </div></header>
 <main><div class="wrap topics">
 <div class="topic-intro"><strong>Run models <mark>without installing Python</mark>.</strong><p>Windows x64 | Delphi 13.2 | Lazarus 4.8</p></div>
-<p class="runtime-note">Pascal calls TVM directly. The prepared examples and the model converter run without Python.</p>
+<p class="runtime-note"><strong>Native TVM update.</strong> Pascal now calls TVM directly to run the supported models. CrossPascal Converter builds TVM bundles from supported original checkpoints. Inference and conversion run without Python. Run <code>Prepare.cmd</code> to set up an example.</p>
 <aside aria-labelledby="prepare-title" class="prepare-feature"><div class="prepare-main"><div class="prepare-copy">
 <h2 id="prepare-title">13 examples. Setup scripts included.</h2>
 <p>Run <code class="file-name">Prepare.cmd</code>, open the project in Delphi or Lazarus, and press <strong>Run</strong>.</p><p>The ZIP contains setup scripts. Running Prepare downloads the files needed by your example. Sizes below assume an empty cache; shared files download once.</p>
