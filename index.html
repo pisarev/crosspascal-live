@@ -453,7 +453,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .prepare-feature .actions>a:not(.btn){font-size:.84rem}
 .topics [role=tablist]>button{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-weight:500}
 .topics [role=tablist]>button[aria-selected=true]{font-weight:700}
-.tab-release{font:600 .65rem/1.25 var(--mono);color:var(--muted)}
+
 .section-disclosure{margin:0;padding:0;border:0}
 .section-disclosure>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 36px;align-items:center;min-height:80px;padding:8px 0;list-style:none;cursor:pointer}
 .section-disclosure>summary::-webkit-details-marker{display:none}
@@ -545,7 +545,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
  padding:3.92px 14px;font:600 .9rem/1.4 var(--sans)
 }
 .workbench .topics [role=tab][aria-selected=true]{font-weight:700}
-.tab-release{font-size:.625rem;line-height:1.2}
+
 @media(pointer:coarse){
  .workbench :is(.gemma-modes>label,.yolo-demo fieldset>label,.topics [role=tab])::before{
   content:"";position:absolute;inset-inline:0;top:50%;height:44px;transform:translateY(-50%)
@@ -702,7 +702,7 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 <p>Run <code class="command">Prepare.cmd</code>, open the project in Delphi or Lazarus, and press <strong>Run</strong>.</p><p>The ZIP contains setup scripts. Running Prepare downloads the files needed by your example. Sizes below assume an empty cache; shared files download once.</p>
 </div><div class="actions"><span class="prepare-option" data-example="all"><a class="btn prepare-action" aria-describedby="download-size-1" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/crosspascal-examples-prepare-ea019.zip">Prepare all 13 examples</a><small class="download-size" id="download-size-1">Per example: 170 MiB to 11.5 GiB</small></span><a href="#prepare-details">Setup details</a></div></div></aside>
 
-<div aria-label="Model topics" role="tablist"><button aria-controls="topic-language" aria-selected="true" id="tab-language" role="tab" tabindex="0" type="button">Language</button><button aria-controls="topic-yolo" aria-selected="false" id="tab-yolo" role="tab" tabindex="-1" type="button">YOLO</button><button aria-controls="topic-vision" aria-selected="false" id="tab-vision" role="tab" tabindex="-1" type="button">Other vision</button><button aria-controls="topic-ocr" aria-selected="false" id="tab-ocr" role="tab" tabindex="-1" type="button">OCR <span class="tab-release">EA020</span></button></div></div>
+<div aria-label="Model topics" role="tablist"><button aria-controls="topic-language" aria-selected="true" id="tab-language" role="tab" tabindex="0" type="button">Language</button><button aria-controls="topic-yolo" aria-selected="false" id="tab-yolo" role="tab" tabindex="-1" type="button">YOLO</button><button aria-controls="topic-vision" aria-selected="false" id="tab-vision" role="tab" tabindex="-1" type="button">Other vision</button><button aria-controls="topic-ocr" aria-selected="false" id="tab-ocr" role="tab" tabindex="-1" type="button">OCR</button></div></div>
 <div aria-labelledby="tab-language" id="topic-language" role="tabpanel"><div class="wrap hero-new desk"><div class="desk-copy"><div class="label">Language models | Local chat</div>
 <h1>Keep your app.<br/><mark>Add a model.</mark></h1><p class="lead">Bring local chat into your Delphi or Lazarus app with Qwen or Gemma. Generate text, ask about a photo, and keep inference on your own computer.</p><p class="scope-note"><strong>Text + image is available:</strong> Qwen2.5-VL 3B and Gemma 3n E4B on CPU or CUDA. Dense Qwen2.5 and Gemma 2 remain text-only. <a href="https://github.com/pisarev/crosspascal/blob/main/docs/MODEL-MODALITIES.md">Compare supported inputs</a>.</p>
 </div>
