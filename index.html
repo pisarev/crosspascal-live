@@ -617,7 +617,6 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 }
 
 
-.runtime-note{font-size:.86rem;line-height:1.6;color:var(--muted);margin:0 0 18px}
 .prepare-option{display:inline-grid;justify-items:start;align-content:start;gap:6px;min-width:0;max-width:100%;align-self:flex-start}
 .prepare-option .download-size{display:block;margin:0;color:var(--muted);font:.75rem/1.5 var(--sans);text-align:left;overflow-wrap:anywhere}
 .actions:has(>.prepare-option){align-items:flex-start}
@@ -645,7 +644,6 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 .gpu-reference .gpu-table .cell-label{display:none}
 .gpu-reference .gpu-test-results{margin-top:24px}
 .gpu-reference .gpu-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-size:.9rem}
-.runtime-note .gpu-reference-link{font-weight:650;display:inline-block;max-width:100%}
 @container gpu-reference (min-width:38.01rem){
  .gpu-grid>div:first-child .gpu-table th:first-child{width:20%}
  .gpu-test-results .gpu-table th:first-child{width:24%}
@@ -678,25 +676,65 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 @media(max-width:820px){.vision-download-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.vision-model-name{grid-column:1/-1}}
 @media(max-width:430px){.vision-download-row{grid-template-columns:minmax(0,1fr)}.vision-model-name{grid-column:auto}}
 
-.project-news{margin:clamp(32px,7vw,76px) 0 42px;padding:clamp(20px,4vw,48px);background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);scroll-margin-top:18px;font-size:1rem}
-.project-news h2{margin:10px 0 22px}.project-news ol{list-style:none;margin:0;padding:0}
-.project-news li{display:grid;grid-template-columns:minmax(0,11ch) minmax(0,1fr);gap:10px clamp(22px,4vw,48px);border-top:1px solid var(--line);padding:17px 0}
-.project-news li:last-child{padding-bottom:0}.project-news time{color:var(--muted);font:600 .84rem/1.55 var(--mono);font-variant-numeric:tabular-nums}
-.project-news h3{font-family:var(--serif);font-size:1.28rem;line-height:1.2;margin:0 0 .3em}
-.project-news p{color:var(--muted);max-width:76ch}.project-news .news-links{display:flex;flex-wrap:wrap;gap:.25em 1em;margin-top:.38em}
+.project-news{margin:0 0 16px;background:#faf9f1;border:1px solid #c9cbbd;border-radius:8px;scroll-margin-top:18px;container:news / inline-size}
+.project-news>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;min-height:44px;padding:7px 14px;border-radius:7px;list-style:none;cursor:pointer;color:var(--ink)}
+.project-news>summary::-webkit-details-marker{display:none}
+.project-news>summary:hover{background:#eef2df}
+.project-news>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.news-label{font:600 1.16rem/1.2 var(--serif)}
+.news-latest{font-size:.9rem;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+.news-toggle{width:1em;text-align:center;color:var(--accent);font:400 1.25rem/1 var(--sans)}
+.news-toggle::after{content:'+'}
+.project-news[open] .news-toggle::after{content:'−'}
+.project-news ol{list-style:none;display:grid;margin:0;padding:0 14px 14px}
+.project-news li{min-width:0;display:grid;align-content:start;gap:.28rem;border-top:1px solid #d9ddce;padding:16px 0 22px}
+.project-news li:last-child{padding-bottom:0}
+.project-news time{color:var(--muted);font:600 .78rem/1.4 var(--mono);font-variant-numeric:tabular-nums}
+.project-news h3{font:600 1.02rem/1.25 var(--serif);margin:0;overflow-wrap:anywhere}
+.project-news p,.news-links{font-size:.88rem;line-height:1.45;overflow-wrap:anywhere}
+.project-news p{color:var(--muted);margin:0;max-width:none}
+.news-links{display:flex;flex-wrap:wrap;gap:.25em .8em;margin-top:.2em}
+@container news (min-width:53rem){
+ .project-news ol{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:20px}
+ .project-news li{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;column-gap:10px;padding-bottom:0}
+ .project-news h3{grid-area:1/1}
+ .project-news time{grid-area:1/2;align-self:center}
+ .project-news p,.project-news .news-links{grid-column:1/-1}
+}
+@container news (max-width:21rem){
+ .project-news>summary{column-gap:8px;padding-inline:11px}
+}
 .starter .paddle-downloads{margin:20px 0 0;padding:14px clamp(14px,2.5vw,24px);border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:1rem}
 .paddle-downloads summary{color:var(--accent);font-weight:700}.paddle-downloads h3{margin-top:14px}
 .paddle-downloads .model-file-links{display:flex;flex-wrap:wrap;gap:7px 18px;margin:7px 0 4px}
-@media(max-width:620px){.project-news li{grid-template-columns:1fr;gap:4px}.project-news{margin-top:32px}}
 </style></head>
 <body class="workbench">
 <header><div class="wrap mast"><div class="mast-brand"><a class="brand" href="#">CrossPascal</a>
 <span class="draft">Early Access 020</span></div>
-<nav aria-label="Main navigation"><a href="#start">Start here</a><a href="#news">News</a><a href="#repositories">Repositories</a><a href="#models">Model catalog</a><a href="#further">Project details</a></nav>
+<nav aria-label="Main navigation"><a href="#news">News</a><a href="#start">Start here</a><a href="#repositories">Repositories</a><a href="#models">Model catalog</a><a href="#further">Project details</a></nav>
 </div></header>
 <main><div class="wrap topics">
 <div class="topic-intro"><strong>Run models <mark>without installing Python</mark>.</strong><p>Windows x64 | Delphi 13.2 | Lazarus 4.8</p></div>
-<p class="runtime-note"><strong>EA020 &middot; PaddleOCR for Pascal.</strong> Read text in photos on CPU or NVIDIA CUDA. <a href="?topic=ocr#start-ocr">Try PaddleOCR</a> &middot; <a class="gpu-reference-link" href="#gpu-compatibility">GPU requirements and test results</a></p>
+<details class="project-news" id="news">
+  <summary><span class="news-label">News</span><span class="news-latest">EA020 adds PaddleOCR</span><span class="news-toggle" aria-hidden="true"></span></summary>
+  <ol role="list">
+    <li><time datetime="2026-11-11">11 Nov 2026</time>
+      <h3>EA019 adds CUDA bundles</h3>
+      <p>Prepare selects compatible NVIDIA bundles for chat, console and vision. CPU downloads remain available.</p>
+      <div class="news-links"><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-019">EA019 release</a><a href="#gpu-compatibility">CUDA compatibility</a></div>
+    </li>
+    <li><time datetime="2026-11-12">12 Nov 2026</time>
+      <h3>Individual vision downloads</h3>
+      <p>Five vision profiles have individual CPU and GPU downloads. Prepare keeps examples you rebuilt in the IDE.</p>
+      <div class="news-links"><a href="#vision-downloads">Vision downloads</a><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-019">Prepare update</a></div>
+    </li>
+    <li><time datetime="2026-11-12">12 Nov 2026</time>
+      <h3>PaddleOCR in EA020</h3>
+      <p>Read text in photos and save it as text or JSON. Get separate CPU or CUDA downloads for both OCR models.</p>
+      <div class="news-links"><a href="?topic=ocr#start-ocr">Try PaddleOCR</a><a href="#gpu-compatibility">GPU requirements</a><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-020">EA020 release</a></div>
+    </li>
+  </ol>
+</details>
 <aside aria-labelledby="prepare-title" class="prepare-feature"><div class="prepare-main"><div class="prepare-copy">
 <h2 id="prepare-title">14 examples. Setup scripts included.</h2>
 <p>Run <code class="command">Prepare.cmd</code>, open the project in Delphi or Lazarus, and press <strong>Run</strong>.</p><p>The ZIP contains setup scripts. Running Prepare downloads the files needed by your example. Sizes below assume an empty cache; shared files download once.</p>
@@ -857,27 +895,6 @@ html{--bg:#f6f4f0;--panel:#fff;--ink:#151b25;--muted:#505a69;--accent:#2446c7;--
 </details>
 </section></div>
 <div class="wrap">
-<section class="project-news" id="news" aria-labelledby="news-title">
-  <div class="label">CrossPascal release notes</div>
-  <h2 id="news-title">News</h2>
-  <ol>
-    <li><time datetime="2026-11-11">11 Nov 2026</time><div>
-      <h3>EA019 brings ready CUDA bundles</h3>
-      <p>Prepare can choose a compatible NVIDIA bundle for the Pascal chat, console and vision examples. CPU downloads remain available for the same examples.</p>
-      <div class="news-links"><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-019">EA019 release</a><a href="#gpu-compatibility">CUDA compatibility</a></div>
-    </div></li>
-    <li><time datetime="2026-11-12">12 Nov 2026</time><div>
-      <h3>Choose one vision model at a time</h3>
-      <p>SqueezeNet, ResNet50, both YOLO11n profiles and RT-DETR have individual CPU and GPU downloads. Repeating Prepare now preserves example executables rebuilt in the IDE.</p>
-      <div class="news-links"><a href="#vision-downloads">Vision downloads</a><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-019">Prepare update</a></div>
-    </div></li>
-    <li><time datetime="2026-11-12">12 Nov 2026</time><div>
-      <h3>EA020 reads text in photos with PaddleOCR</h3>
-      <p>The Delphi and Lazarus example finds text regions and saves the result as UTF-8 text or JSON. The PP-OCRv5 Server detector and recognizer are available separately for CPU and NVIDIA CUDA.</p>
-      <div class="news-links"><a href="?topic=ocr#start-ocr">Try PaddleOCR</a><a href="https://github.com/pisarev/crosspascal/releases/tag/early-access-020">EA020 release</a></div>
-    </div></li>
-  </ol>
-</section>
 <section class="vision-downloads" id="vision-downloads" aria-labelledby="vision-downloads-title"><div class="label">Five vision models &middot; Separate CPU and GPU downloads</div><details class="section-disclosure" id="vision-downloads-details"><summary><h2 id="vision-downloads-title">Choose your model and device.</h2><span class="disclosure-description">SqueezeNet, ResNet50, YOLO11n and RT-DETR. Download only the model you need.</span><span class="disclosure-action"><span class="when-closed">View CPU / GPU downloads</span><span class="when-open">Hide downloads</span></span></summary><div class="disclosure-body vision-download-body"><p>Download a preparation ZIP, extract it, open its folder and run <code class="command">Prepare.cmd</code>. Open the prepared project in Delphi or Lazarus. The selected model and sample image are already filled in.</p><p><strong>CPU:</strong> Windows x64 and at least 1 GiB of free system RAM before model loading, plus memory for Windows and the IDE. <strong>GPU:</strong> the same system requirements, an NVIDIA card with at least 1 GiB of free VRAM and a driver supporting CUDA 12.8. <a href="#gpu-compatibility">Check supported cards and hardware tests</a>.</p><p>First-run sizes below include the model, SDK, runtime and sample. Shared files are downloaded once. The small preparation ZIP is only the launcher. GPU preparation selects the matching compute capability and reports incompatible hardware before downloading.</p><div class="vision-download-list"><article class="vision-download-row" id="vision-download-squeezenet"><div class="vision-model-name"><h3>SqueezeNet 1.1</h3><p>Classification &middot; Apache-2.0</p><details class="model-files"><summary>Model ZIPs for manual setup</summary><div class="model-file-links"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cpu-ea019.zip">CPU ZIP &middot; 8.9 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cuda-sm_61-ea019.zip">GPU CC 6.1 &middot; 9.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cuda-sm_75-ea019.zip">GPU CC 7.5 &middot; 9.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cuda-sm_86-ea019.zip">GPU CC 8.6 &middot; 9.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cuda-sm_89-ea019.zip">GPU CC 8.9 &middot; 9.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-squeezenet-cuda-sm_120-ea019.zip">GPU CC 12.0 &middot; 9.0 MiB</a></div></details></div><span class="prepare-option vision-option" data-example="VisionModels" data-profile="squeezenet" data-device="cpu"><a class="btn prepare-action" aria-label="Prepare SqueezeNet 1.1 for CPU" aria-describedby="matrix-squeezenet-cpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-SqueezeNet-CPU-ea019.zip">Prepare CPU</a><small class="download-size" id="matrix-squeezenet-cpu-size">First run: 407.6 MiB</small></span><span class="prepare-option vision-option" data-example="VisionModels" data-profile="squeezenet" data-device="gpu"><a class="btn prepare-action" aria-label="Prepare SqueezeNet 1.1 for GPU" aria-describedby="matrix-squeezenet-gpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-SqueezeNet-GPU-ea019.zip">Prepare GPU</a><small class="download-size" id="matrix-squeezenet-gpu-size">First run: 407.8 MiB</small></span></article><article class="vision-download-row" id="vision-download-resnet50"><div class="vision-model-name"><h3>ResNet50 v1</h3><p>Classification &middot; Apache-2.0</p><details class="model-files"><summary>Model ZIPs for manual setup</summary><div class="model-file-links"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cpu-ea019.zip">CPU ZIP &middot; 181.4 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cuda-sm_61-ea019.zip">GPU CC 6.1 &middot; 181.5 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cuda-sm_75-ea019.zip">GPU CC 7.5 &middot; 181.5 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cuda-sm_86-ea019.zip">GPU CC 8.6 &middot; 181.5 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cuda-sm_89-ea019.zip">GPU CC 8.9 &middot; 181.5 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-resnet50-cuda-sm_120-ea019.zip">GPU CC 12.0 &middot; 181.5 MiB</a></div></details></div><span class="prepare-option vision-option" data-example="VisionModels" data-profile="resnet50" data-device="cpu"><a class="btn prepare-action" aria-label="Prepare ResNet50 v1 for CPU" aria-describedby="matrix-resnet50-cpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-ResNet50-CPU-ea019.zip">Prepare CPU</a><small class="download-size" id="matrix-resnet50-cpu-size">First run: 580.1 MiB</small></span><span class="prepare-option vision-option" data-example="VisionModels" data-profile="resnet50" data-device="gpu"><a class="btn prepare-action" aria-label="Prepare ResNet50 v1 for GPU" aria-describedby="matrix-resnet50-gpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-ResNet50-GPU-ea019.zip">Prepare GPU</a><small class="download-size" id="matrix-resnet50-gpu-size">First run: 580.3 MiB</small></span></article><article class="vision-download-row" id="vision-download-yolo11n-cls"><div class="vision-model-name"><h3>YOLO11n classification</h3><p>Classification &middot; AGPL-3.0</p><details class="model-files"><summary>Model ZIPs for manual setup</summary><div class="model-file-links"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cpu-ea019.zip">CPU ZIP &middot; 22.9 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cuda-sm_61-ea019.zip">GPU CC 6.1 &middot; 23.2 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cuda-sm_75-ea019.zip">GPU CC 7.5 &middot; 23.2 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cuda-sm_86-ea019.zip">GPU CC 8.6 &middot; 23.2 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cuda-sm_89-ea019.zip">GPU CC 8.9 &middot; 23.2 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cls-cuda-sm_120-ea019.zip">GPU CC 12.0 &middot; 23.2 MiB</a></div></details></div><span class="prepare-option vision-option" data-example="VisionModels" data-profile="yolo11n-cls" data-device="cpu"><a class="btn prepare-action" aria-label="Prepare YOLO11n classification for CPU" aria-describedby="matrix-yolo11n-cls-cpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-YOLO11n-Classification-CPU-ea019.zip">Prepare CPU</a><small class="download-size" id="matrix-yolo11n-cls-cpu-size">First run: 421.6 MiB</small></span><span class="prepare-option vision-option" data-example="VisionModels" data-profile="yolo11n-cls" data-device="gpu"><a class="btn prepare-action" aria-label="Prepare YOLO11n classification for GPU" aria-describedby="matrix-yolo11n-cls-gpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-YOLO11n-Classification-GPU-ea019.zip">Prepare GPU</a><small class="download-size" id="matrix-yolo11n-cls-gpu-size">First run: 421.9 MiB</small></span></article><article class="vision-download-row" id="vision-download-yolo11n"><div class="vision-model-name"><h3>YOLO11n detection</h3><p>Detection &middot; AGPL-3.0</p><details class="model-files"><summary>Model ZIPs for manual setup</summary><div class="model-file-links"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cpu-ea019.zip">CPU ZIP &middot; 33.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cuda-sm_61-ea019.zip">GPU CC 6.1 &middot; 33.6 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cuda-sm_75-ea019.zip">GPU CC 7.5 &middot; 33.6 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cuda-sm_86-ea019.zip">GPU CC 8.6 &middot; 33.6 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cuda-sm_89-ea019.zip">GPU CC 8.9 &middot; 33.6 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-yolo11n-cuda-sm_120-ea019.zip">GPU CC 12.0 &middot; 33.7 MiB</a></div></details></div><span class="prepare-option vision-option" data-example="VisionModels" data-profile="yolo11n" data-device="cpu"><a class="btn prepare-action" aria-label="Prepare YOLO11n detection for CPU" aria-describedby="matrix-yolo11n-cpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-YOLO11n-Detection-CPU-ea019.zip">Prepare CPU</a><small class="download-size" id="matrix-yolo11n-cpu-size">First run: 431.8 MiB</small></span><span class="prepare-option vision-option" data-example="VisionModels" data-profile="yolo11n" data-device="gpu"><a class="btn prepare-action" aria-label="Prepare YOLO11n detection for GPU" aria-describedby="matrix-yolo11n-gpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-YOLO11n-Detection-GPU-ea019.zip">Prepare GPU</a><small class="download-size" id="matrix-yolo11n-gpu-size">First run: 432.4 MiB</small></span></article><article class="vision-download-row" id="vision-download-rtdetr-r18vd"><div class="vision-model-name"><h3>RT-DETR R18vd</h3><p>Detection &middot; Apache-2.0</p><details class="model-files"><summary>Model ZIPs for manual setup</summary><div class="model-file-links"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cpu-ea019.zip">CPU ZIP &middot; 155.8 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cuda-sm_61-ea019.zip">GPU CC 6.1 &middot; 157.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cuda-sm_75-ea019.zip">GPU CC 7.5 &middot; 157.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cuda-sm_86-ea019.zip">GPU CC 8.6 &middot; 157.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cuda-sm_89-ea019.zip">GPU CC 8.9 &middot; 157.0 MiB</a><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/vision-rtdetr-r18vd-cuda-sm_120-ea019.zip">GPU CC 12.0 &middot; 157.1 MiB</a></div></details></div><span class="prepare-option vision-option" data-example="VisionModels" data-profile="rtdetr-r18vd" data-device="cpu"><a class="btn prepare-action" aria-label="Prepare RT-DETR R18vd for CPU" aria-describedby="matrix-rtdetr-r18vd-cpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-RT-DETR-R18vd-CPU-ea019.zip">Prepare CPU</a><small class="download-size" id="matrix-rtdetr-r18vd-cpu-size">First run: 554.5 MiB</small></span><span class="prepare-option vision-option" data-example="VisionModels" data-profile="rtdetr-r18vd" data-device="gpu"><a class="btn prepare-action" aria-label="Prepare RT-DETR R18vd for GPU" aria-describedby="matrix-rtdetr-r18vd-gpu-size" href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-RT-DETR-R18vd-GPU-ea019.zip">Prepare GPU</a><small class="download-size" id="matrix-rtdetr-r18vd-gpu-size">First run: 555.8 MiB</small></span></article></div><p class="vision-all"><a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/Prepare-VisionModels-ea019.zip">Prefer all five models? Download the complete VisionModels starter.</a> Its automatic CPU/CUDA choice remains available.</p><p><a href="https://github.com/pisarev/crosspascal/blob/main/docs/VISION-DOWNLOADS.md">Manual setup, exact sizes and model terms</a> &middot; <a href="https://github.com/pisarev/crosspascal/releases/download/early-access-019/VISION-DOWNLOADS.json">Download checksums</a></p></div></details></section>
 <section class="gpu-reference" id="gpu-compatibility" aria-labelledby="gpu-compatibility-title">
 <div class="label">NVIDIA CUDA &middot; EA019</div>
@@ -1096,6 +1113,7 @@ openCatalog();
 
 
 const sectionTargets = new Map([
+  ['#news', document.getElementById('news')],
   ['#vision-downloads', document.getElementById('vision-downloads-details')],
   ['#gpu-compatibility', document.getElementById('gpu-compatibility-details')],
   ['#repositories', document.getElementById('repository-details')],
