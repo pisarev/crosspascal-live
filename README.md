@@ -2,10 +2,10 @@
 
 [Open the interactive homepage](https://pisarev.github.io/crosspascal-live/).
 
-The homepage describes Early Access 017 and its separately published CPU model bundles. CrossPascal source code and release downloads are public; no account or invitation is required.
+The homepage covers CrossPascal EA020 for Windows x64, including the PaddleOCR example and the language and vision models introduced in EA019. Source repositories and release downloads are public.
 
-Green **Available in EA015** labels identify working downloadable examples for their stated profiles. Grey **Coming soon** labels identify future examples; the card text distinguishes internal results from roadmap work. Illustrations and retained recordings are explicitly labelled.
+Green labels identify downloadable examples. Grey labels identify pending examples or planned work. Illustrations and recorded outputs are labelled on the page.
 
-The application and model releases are independent of this static site. This repository does not run model inference, collect registrations or store subscriber data.
+The examples run locally in Delphi and Lazarus. This repository serves the static homepage.
 
-The bus photograph is the pinned Ultralytics `bus.jpg` linked from the page; the same input was used in the retained EA015 CPU image checks. The Gemma image quotation is actual output from the EA015 Lazarus ImagePrompt example, not a newly executed browser inference.
+The bus photo is the pinned Ultralytics sample linked from the page. The Gemma image response is recorded output from the EA015 Lazarus ImagePrompt example.
