@@ -13,7 +13,7 @@ Baseline source commit: `c66756f8a9ae10705f00e95b954253f7bb6434e9`. Files marked
 | `birefnet-astronaut.png` | 791555 | `88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5` | NASA public-domain sample photograph; source and credit are linked on the page. |
 | `birefnet-cutout.png` | 535494 | `5b7234a381a04b892c71926b684825af4625280befabc7620194ad11d07c2fd2` | Recorded output of the full BiRefNet HR800 model on the NASA sample. |
 | `birefnet-mask.png` | 11495 | `134fe261132e0d10278900b6744e19ece3825746dd11f827fa792a883d8c1f33` | Recorded output of the full BiRefNet HR800 model on the NASA sample. |
-| `index.html` | 177894 | `356459d5b90a9073f3e0ef97943e95984c02d54aefeb07e47f66efb4b2b10861` | CrossPascal page or repository documentation, updated for EA021. |
+| `index.html` | 177894 | `965633e3c48e3ad50a146794120fd90ec8ba62b9d7481c13c0f235eeb1385b3e` | CrossPascal page or repository documentation, updated for EA021. |
 | `vision-birefnet.webp` | 445980 | `079063755d48dbce9692e18057273e9e5c6693c2f2006e8730e7a5869e8917d2` | Existing page asset or configuration, retained byte for byte from the baseline commit. |
 | `vision-classifiers.webp` | 339428 | `41c5bdcf5f80c9b17a700059e177891c0252f7e80c6dad2c2551b656c79b3d82` | Existing page asset or configuration, retained byte for byte from the baseline commit. |
 | `vision-grounded.webp` | 394370 | `e7c44d94800c78855745dfeb896182f282302e4f9d5e6c831a9cdb5a7c007647` | Existing page asset or configuration, retained byte for byte from the baseline commit. |
