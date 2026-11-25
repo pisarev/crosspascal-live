@@ -2,7 +2,7 @@
 
 [Open the interactive homepage](https://pisarev.github.io/crosspascal-live/).
 
-The homepage covers CrossPascal EA024 for Windows x64, including OmDet-Turbo text-guided detection, BiRefNet background removal, PaddleOCR, and language and vision examples. Source repositories and release downloads are public.
+The homepage covers CrossPascal EA024-r1 for Windows x64, including OmDet-Turbo text-guided detection, BiRefNet background removal, PaddleOCR, and language and vision examples. Source repositories and release downloads are public.
 
 Green labels identify downloadable examples. Grey labels identify pending examples or planned work. Illustrations and recorded outputs are labelled on the page.
 

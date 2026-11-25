@@ -1,6 +1,6 @@
 # Static page file manifest
 
-This repository contains the CrossPascal EA024 page and its local assets. Keep the listed relative paths when copying the page. Source and release links remain external links.
+This repository contains the CrossPascal EA024-r1 page and its local assets. Keep the listed relative paths when copying the page. Source and release links remain external links.
 
 Baseline source commit: `13795979b0a3fcc737ba432dd8347005fe9bb42b`. Retained image and configuration files keep their bytes from that commit.
 
@@ -12,9 +12,9 @@ Baseline source commit: `13795979b0a3fcc737ba432dd8347005fe9bb42b`. Retained ima
 | `birefnet-astronaut.png` | 791555 | `88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5` | Retained NASA photograph of Eileen Collins; direct NASA source linked on the page. |
 | `birefnet-cutout.png` | 535494 | `5b7234a381a04b892c71926b684825af4625280befabc7620194ad11d07c2fd2` | Retained actual BiRefNet HR800 output on the NASA photograph. |
 | `birefnet-mask.png` | 11495 | `134fe261132e0d10278900b6744e19ece3825746dd11f827fa792a883d8c1f33` | Retained actual BiRefNet HR800 output on the NASA photograph. |
-| `index.html` | 198229 | `42a7f4853a781b128981409d9350b33f55dcd51ef3b93c8a2d708e81fe17ebff` | Current EA024 page, model actions, download sizes, and credits. |
+| `index.html` | 198640 | `6195ccc05395bd03f77ccde64286dad04da0bb6d53dcdd4c927a1b6a06bcf115` | Current EA024-r1 page, model actions, download sizes, and credits. |
 | `omdet-astronaut.png` | 592099 | `482d53053add4e2fd6650c6946846220c27290f7b96789cddb9094cefbd150b0` | Annotated OmDet-Turbo output saved by the Pascal example from the NASA Eileen Collins photograph. |
-| `README.md` | 1451 | `453dec4ffe7dbb1decfb4b07ad09a304f364016cae84c710e0ee5f6b929419fe` | Current page and repository guide. |
+| `README.md` | 1454 | `f22467e138e44f6dae673f9e6e973e479f1c7a67149e40fe6da7a5f8e695e496` | Current page and repository guide. |
 | `vision-birefnet.webp` | 445980 | `079063755d48dbce9692e18057273e9e5c6693c2f2006e8730e7a5869e8917d2` | Page asset or configuration retained byte for byte from the baseline. |
 | `vision-classifiers.webp` | 339428 | `41c5bdcf5f80c9b17a700059e177891c0252f7e80c6dad2c2551b656c79b3d82` | Page asset or configuration retained byte for byte from the baseline. |
 | `vision-grounded.webp` | 394370 | `e7c44d94800c78855745dfeb896182f282302e4f9d5e6c831a9cdb5a7c007647` | Page asset or configuration retained byte for byte from the baseline. |
