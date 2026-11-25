@@ -1,20 +1,20 @@
 # Static page file manifest
 
-This repository contains the CrossPascal EA023 page and its local assets. Keep the listed relative paths when copying the page. Source and release links remain external links.
+This repository contains the CrossPascal EA024 page and its local assets. Keep the listed relative paths when copying the page. Source and release links remain external links.
 
-Baseline source commit: `470a751f5e68e53b16671a06d0c4dad10623b978`. Retained image and configuration files keep their bytes from that commit.
+Baseline source commit: `13795979b0a3fcc737ba432dd8347005fe9bb42b`. Retained image and configuration files keep their bytes from that commit.
 
 `MANIFEST.md` lists itself by role and is excluded from the checksum table to avoid a self-reference. Git metadata is excluded.
 
 | Path | Bytes | SHA-256 | Role |
 | --- | ---: | --- | --- |
 | `.nojekyll` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` | Page asset or configuration retained byte for byte from the baseline. |
-| `README.md` | 1268 | `e40f7ca13b5ee0a9e3c0f5c59798b02addfa2126f219d01806c25604f8470363` | Current page and repository guide. |
 | `birefnet-astronaut.png` | 791555 | `88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5` | Retained NASA photograph of Eileen Collins; direct NASA source linked on the page. |
 | `birefnet-cutout.png` | 535494 | `5b7234a381a04b892c71926b684825af4625280befabc7620194ad11d07c2fd2` | Retained actual BiRefNet HR800 output on the NASA photograph. |
 | `birefnet-mask.png` | 11495 | `134fe261132e0d10278900b6744e19ece3825746dd11f827fa792a883d8c1f33` | Retained actual BiRefNet HR800 output on the NASA photograph. |
-| `index.html` | 190804 | `100ef95e0d7e2cab8597dd010a78ff9b7214b1ad30e8c7f177367be089d297eb` | Current EA023 page, model actions, download sizes, and credits. |
+| `index.html` | 198229 | `42a7f4853a781b128981409d9350b33f55dcd51ef3b93c8a2d708e81fe17ebff` | Current EA024 page, model actions, download sizes, and credits. |
 | `omdet-astronaut.png` | 592099 | `482d53053add4e2fd6650c6946846220c27290f7b96789cddb9094cefbd150b0` | Annotated OmDet-Turbo output saved by the Pascal example from the NASA Eileen Collins photograph. |
+| `README.md` | 1451 | `453dec4ffe7dbb1decfb4b07ad09a304f364016cae84c710e0ee5f6b929419fe` | Current page and repository guide. |
 | `vision-birefnet.webp` | 445980 | `079063755d48dbce9692e18057273e9e5c6693c2f2006e8730e7a5869e8917d2` | Page asset or configuration retained byte for byte from the baseline. |
 | `vision-classifiers.webp` | 339428 | `41c5bdcf5f80c9b17a700059e177891c0252f7e80c6dad2c2551b656c79b3d82` | Page asset or configuration retained byte for byte from the baseline. |
 | `vision-grounded.webp` | 394370 | `e7c44d94800c78855745dfeb896182f282302e4f9d5e6c831a9cdb5a7c007647` | Page asset or configuration retained byte for byte from the baseline. |
