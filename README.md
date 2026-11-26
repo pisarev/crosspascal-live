@@ -2,7 +2,7 @@
 
 [Open the interactive homepage](https://pisarev.github.io/crosspascal-live/).
 
-The homepage covers CrossPascal EA024-r1 for Windows x64, including OmDet-Turbo text-guided detection, BiRefNet background removal, PaddleOCR, and language and vision examples. Source repositories and release downloads are public.
+The homepage covers CrossPascal EA025 for Windows x64, including OmDet-Turbo text-guided detection, BiRefNet background removal, PaddleOCR, and language and vision examples. Source repositories and release downloads are public.
 
 Green labels identify downloadable examples. Grey labels identify pending examples or planned work. Illustrations and recorded outputs are labelled on the page.
 
@@ -17,3 +17,5 @@ OmDet-Turbo previews use the annotated PNG saved by the Pascal example from the 
 EA023 adds text and image input for Huihui Gemma 3n E4B abliterated and Qwen3.8-27B, with dedicated CPU/CUDA preparation kits.
 
 EA024 adds YoloModels: 23 profiles across seven tasks on CPU or CUDA, with dedicated preparation kits. Model and source licenses remain in the supplied provenance and license files.
+
+EA025 expands YoloModels to 115 profiles in the available n, s, m, b, l and x sizes. Choose one size or all sizes, on CPU or CUDA. Standalone size kits have separate installation folders and share the download cache.
