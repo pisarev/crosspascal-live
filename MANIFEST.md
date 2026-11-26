@@ -12,7 +12,7 @@ Baseline source commit: `2b58bc9464bd14f0423a909c7af4cfa500fe4bbf`. Retained ima
 | `birefnet-astronaut.png` | 791555 | `88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5` | Retained NASA photograph of Eileen Collins; direct NASA source linked on the page. |
 | `birefnet-cutout.png` | 535494 | `5b7234a381a04b892c71926b684825af4625280befabc7620194ad11d07c2fd2` | Retained actual BiRefNet HR800 output on the NASA photograph. |
 | `birefnet-mask.png` | 11495 | `134fe261132e0d10278900b6744e19ece3825746dd11f827fa792a883d8c1f33` | Retained actual BiRefNet HR800 output on the NASA photograph. |
-| `index.html` | 207141 | `846be6942000f9a448f7529e2ba50e2f04531e3ef82a9237fa6e7f959e32ef97` | Current EA025 page, measured preparation links and download sizes. |
+| `index.html` | 207155 | `fafc8b5c37e50b23f30a17b72b4e3ff6f2bb233b2bdd1f11db34126b96c17968` | Current EA025 page, measured preparation links and download sizes. |
 | `omdet-astronaut.png` | 592099 | `482d53053add4e2fd6650c6946846220c27290f7b96789cddb9094cefbd150b0` | Annotated OmDet-Turbo output saved by the Pascal example from the NASA Eileen Collins photograph. |
 | `README.md` | 1652 | `e631ddc424fc217c6d78e57d43a1400d6d514b26c773fae2f713be4c61bcff1a` | Current page and repository guide. |
 | `vision-birefnet.webp` | 445980 | `079063755d48dbce9692e18057273e9e5c6693c2f2006e8730e7a5869e8917d2` | Page asset or configuration retained byte for byte from the baseline. |
